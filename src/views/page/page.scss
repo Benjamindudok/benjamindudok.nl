@@ -1,0 +1,13 @@
+@import '../../scss/_reference';
+
+.page {
+    &__header {
+        margin: 0 0 30px;
+    }
+
+    &__meta {
+        font-size: rem-calc(12px);
+        font-weight: $global-font-weight-normal;
+        text-transform: uppercase;
+    }
+}

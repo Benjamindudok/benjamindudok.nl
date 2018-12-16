@@ -1,0 +1,19 @@
+@import '../scss/reference';
+
+@import '~normalize.css/normalize.css';
+
+@import '../scss/base/container';
+@import '../scss/base/typography';
+
+.app {
+    &__header {
+        color: $color-mirage;
+        padding: 30px 0 50px;
+        text-align: center;
+    }
+
+    &__title {
+        color: $color-mirage;
+        letter-spacing: -1px;
+    }
+}

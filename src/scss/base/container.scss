@@ -1,0 +1,14 @@
+@import '../../scss/_reference';
+
+.container {
+    margin: 0 auto;
+    max-width: 512px;
+    min-width: 320px;
+    padding: 0 15px;
+    width: 100%;
+
+    @include respond-to(xlarge) {
+        max-width: 768px;
+        padding: 0;
+    }
+}
