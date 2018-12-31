@@ -6,34 +6,35 @@ $breakpoints: ('small': 0, 'medium': 640px, 'large': 1024px, 'xlarge': 1200px, '
 
 //
 // Semantic color variables
-$color-accent: $color-genoa;
-$color-accent-dark: $color-pickled-bluewood;
-$color-accent-light: $color-atlantis;
+$color-accent: $color-atlantis;
+$color-accent-dark: darken($color-accent, 15%);
+$color-accent-light: lighten($color-accent, 20%);
 
-$color-text: $color-mirage;
-$color-header: $color-accent;
+$color-text: lighten($color-pickled-bluewood, 15%);
+$color-header: $color-pickled-bluewood;
 
-$color-link: $color-accent-light;
-$color-link-hover: $color-accent;
+$color-link: $color-accent;
+$color-link-hover: $color-accent-light;
 $color-link-visited: $color-link;
 $color-link-visited-hover: $color-link-hover;
-$color-link-active: $color-accent;
+$color-link-active: $color-accent-light;
 $color-link-active-hover: $color-accent;
 
 //
 // Globals
 $global-background: $color-white;
 $global-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-$global-font-family-header: 'Montserrat', sans-serif;
-$global-font-scale-xxlarge: 2.618rem;
-$global-font-scale-xlarge: 1.809rem;
-$global-font-scale-large: 1.310rem;
+$global-font-family-header: 'Raleway', sans-serif;
+$global-font-scale-xxlarge: 1.728rem;
+$global-font-scale-xlarge: 1.44rem;
+$global-font-scale-large: 1.2rem;
 $global-font-scale-normal: 1rem;
-$global-font-scale-small: 0.8rem;
-$global-font-scale-tiny: 0.8rem;
+$global-font-scale-small: 0.833rem;
+$global-font-scale-tiny: 0.666rem;
 $global-font-size: 14px;
 $global-font-weight-light: 300;
 $global-font-weight-normal: 400;
+$global-font-weight-medium: 500;
 $global-font-weight-bold: 700;
 $global-font-weight-thick: 900;
 $global-line-height: 2;

@@ -1,0 +1,11 @@
+@import '../../scss/reference';
+
+.footer {
+    padding: 50px 0 30px;
+    text-align: center;
+
+    &__text {
+        font-size: $global-font-scale-small;
+        margin: 0;
+    }
+}

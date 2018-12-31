@@ -3,7 +3,6 @@
         <header class="page__header" slot="header">
             <h2 class="page__title">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur,
                                     adipisci velit...</h2>
-            <p class="page__meta">Lorem ipsum dolor sit amet, consectetur adipiscing elit. - 21-10-2018</p>
         </header>
 
         <footer class="page__footer" slot="footer">
