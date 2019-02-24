@@ -1,9 +1,12 @@
+
 import Vue from 'vue';
 import Router from 'vue-router';
 import Home from './overview/overview.vue';
 
 import About from './about/about.vue';
+
 import Page from './page/page.vue';
+import PageContent from 'src/views/page/content/page-content.vue';
 
 Vue.use(Router);
 
@@ -20,9 +23,14 @@ export default new Router({
             component: About
         },
         {
-            path: '/page/:id',
-            name: 'page',
-            component: Page
+            path: '/page/:entryId',
+            component: Page,
+            children: [
+                {
+                    path: '',
+                    component: PageContent
+                }
+            ]
         }
     ]
 });
