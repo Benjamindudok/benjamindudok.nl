@@ -5,14 +5,14 @@
     color: $color-mirage;
     display: flex;
     justify-content: flex-start;
-    padding: 30px 0 100px;
+    padding: 30px 0 94px 100px;
 
     $header: &;
 
     &__title {
         color: $color-accent;
-        font-size: $global-font-scale-large;
-        margin: 0 0 0 100px;
+        font-size: $global-font-scale-normal;
+        margin: 0;
         transition: $global-transition;
     }
 
@@ -31,7 +31,7 @@
     }
 
     &__link {
-        font-size: $global-font-scale-normal;
+        font-size: rem-calc(16);
         font-weight: $global-font-weight-bold;
         margin-right: 40px;
         padding: 0 15px;

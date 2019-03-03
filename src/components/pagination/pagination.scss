@@ -2,9 +2,9 @@
 
 .pagination {
     list-style: none;
-    margin: 15px 0 30px;
+    margin: 15px 0 0;
     padding: 0;
-    text-align: center;
+    text-align: left;
 
     &__item {
         display: inline-block;
@@ -31,15 +31,13 @@
         transition: $global-transition;
 
         &:hover, &:focus {
-            background: $color-accent;
             border: $color-accent;
-            color: $color-white;
+            color: $color-accent-light;
         }
 
         &--isActive {
-            background: $color-accent;
             border: $color-accent;
-            color: $color-white;
+            color: $color-accent-light;
 
             &:hover, &:focus {
                 border-color: $color-accent;

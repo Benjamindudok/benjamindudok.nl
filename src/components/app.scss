@@ -3,3 +3,9 @@
 @import '~normalize.css/normalize.css';
 
 @import '../scss/base/typography';
+
+.app {
+    &__content {
+        min-height: calc(100vh - 160px - 100px);
+    }
+}

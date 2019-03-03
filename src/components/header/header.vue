@@ -1,5 +1,5 @@
 <template>
-    <header class="header container">
+    <header class="header">
 
         <router-link to="/">
             <h1 class="header__title">Benjamin Dudok.</h1>

@@ -1,11 +1,29 @@
 @import '../../scss/reference';
 
 .footer {
-    padding: 50px 0 30px;
-    text-align: center;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    font-size: $global-font-scale-small;
+    padding: 45px 100px 30px;
+    text-align: left;
 
     &__text {
-        font-size: $global-font-scale-small;
         margin: 0;
+    }
+
+    &__list {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    &__item {
+        display: inline-block;
+        margin: 0 20px;
+
+        &:first-child {
+            margin-left: 0;
+        }
     }
 }
