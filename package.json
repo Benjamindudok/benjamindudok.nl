@@ -9,7 +9,9 @@
   },
   "dependencies": {
     "@contentful/rich-text-html-renderer": "^13.0.0",
+    "@types/moment": "^2.13.0",
     "contentful": "^7.2.0",
+    "moment": "^2.24.0",
     "normalize.css": "^8.0.1",
     "vue": "^2.6.3",
     "vue-class-component": "^6.0.0",
