@@ -4,11 +4,11 @@ import { client, contentTypePost } from 'src/utils/contentful';
 import Post, { IPostEntry } from 'src/utils/models/post';
 
 @Component
-export default class Overview extends Vue
+export default class PageOverview extends Vue
 {
     posts: Post[] = [];
     totalPosts: number = 0;
-    totalPostsPerPage: number = 1;
+    totalPostsPerPage: number = 10;
     skippedPosts: number = 0;
 
     get pages(): number
