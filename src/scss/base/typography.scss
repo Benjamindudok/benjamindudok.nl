@@ -9,10 +9,10 @@ html, body {
     font-weight: $global-font-weight-normal;
     line-height: $global-line-height;
     text-align: left;
-    font-size: 16px;
+    font-size: $global-font-size;
 
     @include respond-to(large) {
-        font-size: 21px;
+        font-size: $global-font-size;
     }
 }
 

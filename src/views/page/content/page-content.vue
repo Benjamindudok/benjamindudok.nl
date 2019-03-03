@@ -1,12 +1,12 @@
 <template>
-    <article class="container page">
-        <header class="page__header" slot="header">
+    <article class="page" v-if="post">
+        <header class="page__header">
             <h2 class="page__title">
                 {{ post.title }}
             </h2>
         </header>
 
-        <p class="lead">
+        <p class="page__lead lead">
             {{ post.introduction }}
         </p>
 

@@ -1,13 +1,14 @@
 @import '../../scss/_reference';
 
 .page {
+    max-width: $global-container-width;
+    padding-left: 200px;
+
     &__header {
-        margin: 0 0 30px;
+        margin: 0 0 30px -100px;
     }
 
-    &__meta {
-        font-size: rem-calc(12px);
-        font-weight: $global-font-weight-normal;
-        text-transform: uppercase;
+    &__title {
+        font-size: $global-font-scale-xxlarge;
     }
 }
