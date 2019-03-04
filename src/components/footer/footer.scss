@@ -1,12 +1,18 @@
 @import '../../scss/reference';
 
 .footer {
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-    font-size: $global-font-scale-small;
-    padding: 45px 100px 30px;
+    font-size: $global-font-scale-normal;
+    padding: 45px 20px 30px;
     text-align: left;
+
+    @include respond-to(medium) {
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        font-size: $global-font-scale-small;
+        padding-left: 100px;
+        padding-right: 100px;
+    }
 
     &__text {
         margin: 0;

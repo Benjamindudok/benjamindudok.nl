@@ -2,10 +2,18 @@
 
 .page {
     max-width: $global-container-width;
-    padding-left: 200px;
+    padding: 0 20px;
+
+    @include respond-to(medium) {
+        padding-left: 200px;
+    }
 
     &__header {
-        margin: 0 0 30px -100px;
+        margin: 0 0 30px;
+
+        @include respond-to(medium) {
+            margin-left: -10px;
+        }
     }
 
     &__title {
