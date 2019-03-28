@@ -21,7 +21,7 @@ export default class PageOverview extends Vue
         return this.skippedPosts / this.totalPostsPerPage;
     }
 
-    created(): void
+    mounted(): void
     {
         this.getPosts();
     }
@@ -43,6 +43,8 @@ export default class PageOverview extends Vue
             {
                 this.posts.push(new Post(e as Entry<IPostEntry>));
             });
+
+            document.dispatchEvent(new Event('x-app-rendered'));
         });
     }
 

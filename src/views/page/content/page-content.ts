@@ -8,7 +8,7 @@ export default class PageContent extends Vue
 {
     post: Post | null = null;
 
-    created(): void
+    mounted(): void
     {
         this.getPost();
     }
@@ -24,6 +24,7 @@ export default class PageContent extends Vue
                 .then(entry =>
                 {
                     this.post = new Post(entry as Entry<IPostEntry>);
+                    document.dispatchEvent(new Event('x-app-rendered'));
                 })
                 .catch(error =>
                 {
