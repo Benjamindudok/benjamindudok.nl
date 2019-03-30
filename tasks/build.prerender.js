@@ -16,11 +16,18 @@ module.exports = (api, options) =>
             select: 'fields.title'
         });
 
-        options.pluginOptions.prerenderSpa.renderRoutes = [
-            '/',
-            '/about',
-            ...entries.items.map((i) => `/page/${i.sys.id}`)
-        ];
+        options.pluginOptions = {
+            prerenderSpa: {
+                renderRoutes: [
+                    '/',
+                    '/about',
+                    ...entries.items.map((i) => `/page/${i.sys.id}`)
+                ],
+                useRenderEvent: true,
+                headless: true,
+                onlyProduction: true
+            }
+        };
 
         await api.service.run('build', args);
     });

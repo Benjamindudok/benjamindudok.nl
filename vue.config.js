@@ -8,14 +8,5 @@ module.exports = {
                 'src': path.resolve(__dirname, "src")
             }
         }
-    },
-
-    pluginOptions: {
-      prerenderSpa: {
-        renderRoutes: ['/'],
-        useRenderEvent: true,
-        headless: false,
-        onlyProduction: true
-      }
     }
 };
