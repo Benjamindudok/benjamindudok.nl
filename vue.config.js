@@ -1,4 +1,4 @@
-const path = require("path");
+var path = require('path');
 
 module.exports = {
     configureWebpack: {
@@ -12,12 +12,9 @@ module.exports = {
 
     pluginOptions: {
       prerenderSpa: {
-        renderRoutes: [
-          '/',
-          '/about'
-        ],
+        renderRoutes: ['/'],
         useRenderEvent: true,
-        headless: true,
+        headless: false,
         onlyProduction: true
       }
     }

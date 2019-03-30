@@ -4,12 +4,11 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "vue-cli-service build:prerender",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "@contentful/rich-text-html-renderer": "^13.0.0",
-    "@types/moment": "^2.13.0",
     "contentful": "^7.2.0",
     "moment": "^2.24.0",
     "normalize.css": "^8.0.1",
@@ -19,6 +18,7 @@
     "vue-router": "^3.0.1"
   },
   "devDependencies": {
+    "@types/moment": "^2.13.0",
     "@vue/cli-plugin-typescript": "^3.4.0",
     "@vue/cli-service": "^3.4.0",
     "node-sass": "^4.9.0",
@@ -27,5 +27,10 @@
     "typescript": "^3.3.3",
     "vue-cli-plugin-prerender-spa": "^1.1.5",
     "vue-template-compiler": "^2.6.3"
+  },
+  "vuePlugins": {
+    "service": [
+      "./tasks/build.prerender.js"
+    ]
   }
 }
