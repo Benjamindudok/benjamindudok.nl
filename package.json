@@ -20,7 +20,7 @@
   "devDependencies": {
     "@types/moment": "^2.13.0",
     "@vue/cli-plugin-typescript": "^3.4.0",
-    "@vue/cli-service": "^3.4.0",
+    "@vue/cli-service": "^3.5.3",
     "node-sass": "^4.9.0",
     "prerender-spa-plugin": "^3.2.1",
     "sass-loader": "^7.0.1",
