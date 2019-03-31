@@ -16,6 +16,23 @@
         }
     }
 
+    &__footer {
+        font-weight: $global-font-weight-medium;
+
+        @include respond-to(large) {
+            font-size: rem-calc(16px);
+        }
+
+        &::before {
+            background: $color-accent;
+            content: '';
+            display: block;
+            height: 2px;
+            margin: 40px 0 10px;
+            max-width: 50%;
+        }
+    }
+
     &__title {
         font-size: $global-font-scale-xxlarge;
     }

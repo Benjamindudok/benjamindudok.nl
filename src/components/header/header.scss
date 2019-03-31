@@ -16,7 +16,8 @@
 
     &__title {
         color: $color-accent;
-        font-size: $global-font-scale-normal;
+        font-size: $global-font-scale-large;
+        font-weight: $global-font-weight-medium;
         margin: 0;
         transition: $global-transition;
     }
@@ -41,7 +42,7 @@
 
     &__link {
         font-size: rem-calc(16);
-        font-weight: $global-font-weight-bold;
+        font-weight: $global-font-weight-medium;
         padding: 0 10px;
 
         &:first-child {
@@ -62,7 +63,7 @@
         }
 
         &--is-active {
-            font-weight: $global-font-weight-bold;
+            font-weight: $global-font-weight-medium;
             text-decoration: underline;
 
             &:hover {

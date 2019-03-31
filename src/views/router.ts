@@ -8,7 +8,7 @@ import PageContent from 'src/views/page/content/page-content.vue';
 
 Vue.use(Router);
 
-export default new Router({
+const router: Router = new Router({
     mode: 'history',
     routes: [
         {
@@ -37,3 +37,14 @@ export default new Router({
         }
     ]
 });
+
+router.afterEach((to) => {
+    // track page change with google analytics
+    ga('set', 'page', to.path);
+    ga('send', 'pageview');
+
+    // scroll to top when navigating
+    window.scrollTo(0, 0);
+});
+
+export default router;
