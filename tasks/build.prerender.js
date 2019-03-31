@@ -24,7 +24,6 @@ module.exports = (api, options) =>
                     ...entries.items.map((i) => `/page/${i.sys.id}`)
                 ],
                 useRenderEvent: true,
-                headless: true,
                 onlyProduction: true
             }
         };
