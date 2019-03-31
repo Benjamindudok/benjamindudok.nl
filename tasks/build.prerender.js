@@ -10,8 +10,6 @@ module.exports = (api, options) =>
         });
 
         const entries = await client.getEntries({
-            limit: this.totalPostsPerPage,
-            skip: this.skippedPosts,
             content_type: 'post',
             select: 'fields.title'
         });
