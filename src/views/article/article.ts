@@ -1,12 +1,12 @@
 import { Entry } from 'contentful';
 import Post, { IPostEntry } from 'src/utils/models/post';
 import { Component, Vue, Watch } from 'vue-property-decorator';
-import { client, contentTypePage, contentTypePost } from 'src/utils/contentful';
+import { client, contentTypePost } from 'src/utils/contentful';
 
 @Component
-export default class Page extends Vue
+export default class Article extends Vue
 {
-    page: Post | null = null;
+    article: Post | null = null;
 
     mounted(): void
     {
@@ -21,7 +21,7 @@ export default class Page extends Vue
         if (entryId)
         {
             client.getEntries({
-                    content_type: contentTypePage,
+                    content_type: contentTypePost,
                     'fields.slug': entryId
                 })
                 .then(data =>
@@ -30,7 +30,7 @@ export default class Page extends Vue
                     {
                         const entry: Entry<any> = data.items[0];
 
-                        this.page = new Post(entry as Entry<IPostEntry>);
+                        this.article = new Post(entry as Entry<IPostEntry>);
                     }
 
                     document.dispatchEvent(new Event('x-app-rendered'));

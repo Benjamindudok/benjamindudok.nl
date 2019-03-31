@@ -4,7 +4,7 @@ import { client, contentTypePost } from 'src/utils/contentful';
 import Post, { IPostEntry } from 'src/utils/models/post';
 
 @Component
-export default class PageOverview extends Vue
+export default class Overview extends Vue
 {
     posts: Post[] = [];
     totalPosts: number = 0;
@@ -32,7 +32,7 @@ export default class PageOverview extends Vue
             limit: this.totalPostsPerPage,
             skip: this.skippedPosts,
             content_type: contentTypePost,
-            select: 'fields.title,fields.introduction'
+            select: 'fields.title,fields.introduction,fields.slug'
         }).then((data) =>
         {
             this.totalPosts = data.total;

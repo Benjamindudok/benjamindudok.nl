@@ -1,10 +1,9 @@
 
 import Vue from 'vue';
 import Router from 'vue-router';
-
-import Page from './page/page.vue';
-import PageOverview from './page/overview/page-overview.vue';
-import PageContent from 'src/views/page/content/page-content.vue';
+import Overview from 'src/views/overview/overview.vue';
+import Article from 'src/views/article/article.vue';
+import Page from 'src/views/page/page.vue';
 
 Vue.use(Router);
 
@@ -13,27 +12,16 @@ const router: Router = new Router({
     routes: [
         {
             path: '/',
+            name: 'overview',
+            component: Overview
+        },
+        {
+            path: '/articles/:slug',
+            component: Article
+        },
+        {
+            path: '/:slug',
             component: Page,
-            children: [
-                {
-                    path: '/',
-                    name: 'overview',
-                    component: PageOverview
-                },
-                {
-                    path: 'page/:entryId',
-                    component: PageContent
-                },
-                {
-                    path: 'page/5klzWs8nW9pLmeWh0u86B5',
-                    alias: '/about',
-                    name: 'about',
-                    component: PageContent,
-                    meta: {
-                        entry: '5klzWs8nW9pLmeWh0u86B5'
-                    }
-                }
-            ]
         }
     ]
 });

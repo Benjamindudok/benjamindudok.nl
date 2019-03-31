@@ -4,6 +4,7 @@ import { documentToHtmlString } from '@contentful/rich-text-html-renderer';
 export default class Post
 {
     id!: string;
+    slug!: string;
     title!: string;
     introduction!: string;
     createdAt!: Date;
@@ -13,6 +14,7 @@ export default class Post
     constructor(entry: Entry<IPostEntry>)
     {
         this.id = entry.sys.id;
+        this.slug = entry.fields.slug;
         this.title = entry.fields.title;
         this.introduction = entry.fields.introduction;
         this.createdAt = new Date(entry.sys.createdAt);
@@ -23,6 +25,7 @@ export default class Post
 
 export interface IPostEntry
 {
+    slug: string;
     title: string;
     introduction: string;
     content: any;
