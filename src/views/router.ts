@@ -3,6 +3,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Overview from 'src/views/overview/overview.vue';
 import Article from 'src/views/article/article.vue';
+import Archive from 'src/views/archive/archive.vue';
 import Page from 'src/views/page/page.vue';
 
 Vue.use(Router);
@@ -12,8 +13,11 @@ const router: Router = new Router({
     routes: [
         {
             path: '/',
-            name: 'overview',
             component: Overview
+        },
+        {
+            path: '/articles',
+            component: Archive
         },
         {
             path: '/articles/:slug',

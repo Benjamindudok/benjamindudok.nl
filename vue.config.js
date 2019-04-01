@@ -11,7 +11,7 @@ module.exports = {
     },
     pluginOptions: {
         prerenderSpa: {
-            renderRoutes: [ '/' ],
+            renderRoutes: [ '/', '/archive' ],
             useRenderEvent: true,
             onlyProduction: true
         }
