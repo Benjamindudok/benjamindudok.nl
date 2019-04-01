@@ -1,7 +1,7 @@
 @import '../../scss/reference';
 
 .header {
-    color: $color-mirage;
+    color: $color-text;
     padding: 30px 20px 94px;
 
     @include respond-to(medium) {
@@ -18,6 +18,7 @@
         color: $color-accent;
         font-size: $global-font-scale-large;
         font-weight: $global-font-weight-medium;
+        letter-spacing: -1px;
         margin: 0;
         transition: $global-transition;
     }

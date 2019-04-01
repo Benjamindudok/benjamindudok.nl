@@ -4,6 +4,7 @@
 html, body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background-color: $color-white;
     color: $color-text;
     font-family: $global-font-family;
     font-weight: $global-font-weight-normal;
@@ -102,7 +103,7 @@ a {
 }
 
 code {
-    background: $color-mirage;
+    background: $color-abbey;
     border-radius: 5px;
     color: $color-white;
     display: inline-block;
@@ -110,7 +111,7 @@ code {
 }
 
 pre {
-    background: $color-mirage;
+    background: $color-abbey;
     border-radius: 15px;
     color: $color-white;
     margin: rem-calc(32) 0;

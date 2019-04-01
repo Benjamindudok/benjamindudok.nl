@@ -11,10 +11,6 @@
         </p>
 
         <div class="page__content" v-html="page.content"></div>
-
-        <footer class="page__footer" slot="footer">
-            <router-link to="/">Back to overview</router-link>
-        </footer>
     </article>
 </template>
 

@@ -13,7 +13,7 @@
         <div class="article__content" v-html="article.content"></div>
 
         <footer class="article__footer" slot="footer">
-            <router-link to="/">Back to overview</router-link>
+            <router-link to="/">Back to all articles</router-link>
         </footer>
     </article>
 </template>

@@ -7,7 +7,7 @@
 
         <nav id="nav" class="header__navigation">
             <router-link to="/" active-class="header__link--is-active" :exact="true" class="header__link">
-                Posts
+                Articles
             </router-link>
             <router-link to="/about" active-class="header__link--is-active" :exact="true" class="header__link">
                 About
