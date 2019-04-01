@@ -19,8 +19,6 @@ module.exports = (api, options) =>
             select: 'fields.slug'
         });
 
-        console.log(pages, posts);
-
         options.pluginOptions = {
             prerenderSpa: {
                 renderRoutes: [
