@@ -1,37 +1,16 @@
 {
-  "name": "www.benjamindudok.nl",
-  "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build:prerender",
-    "lint": "vue-cli-service lint"
-  },
-  "dependencies": {
-    "@contentful/rich-text-html-renderer": "^13.0.0",
-    "@types/google.analytics": "0.0.39",
-    "contentful": "^7.2.0",
-    "moment": "^2.24.0",
-    "normalize.css": "^8.0.1",
-    "vue": "^2.6.3",
-    "vue-class-component": "^6.0.0",
-    "vue-property-decorator": "^7.3.0",
-    "vue-router": "^3.0.1"
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "@types/moment": "^2.13.0",
-    "@vue/cli-plugin-typescript": "^3.4.0",
-    "@vue/cli-service": "^3.5.3",
-    "node-sass": "^4.9.0",
-    "prerender-spa-plugin": "^3.2.1",
-    "sass-loader": "^7.0.1",
-    "typescript": "^3.3.3",
-    "vue-cli-plugin-prerender-spa": "^1.1.5",
-    "vue-template-compiler": "^2.6.3"
+    "nuxt": "3.0.0"
   },
-  "vuePlugins": {
-    "service": [
-      "./tasks/build.prerender.js"
-    ]
+  "dependencies": {
+    "normalize.css": "^8.0.1"
   }
 }
