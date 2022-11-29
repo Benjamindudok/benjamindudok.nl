@@ -43,7 +43,7 @@
   --font-weight-normal: 400;
   --font-weight-bold: 700;
   --font-weight-black: 900;
-  --line-height: 1.5;
+  --line-height: 1.7;
   --line-height-condensed: 1.2;
   --spacer-0: 0;
   --spacer-1: 4px;
@@ -76,9 +76,63 @@ h4,
 h5,
 h6 {
   font-family: var(--font-family-heading);
+  font-weight: var(--font-weight-black);
+  line-height: var(--line-height-condensed);
+}
+
+h1 {
+  font-size: var(--font-size-00);
+}
+
+h2 {
+  font-size: var(--font-size-0);
+}
+
+h3 {
+  font-size: var(--font-size-1);
+  font-weight: var(--font-weight-bold);
+}
+
+h4 {
+  font-size: var(--font-size-2);
+  font-weight: var(--font-weight-bold);
+}
+
+h5 {
+  font-size: var(--font-size-3);
+  font-weight: var(--font-weight-bold);
+}
+
+h6 {
+  font-size: var(--font-size-4);
+  font-weight: var(--font-weight-bold);
 }
 
 p {
   margin: var(--spacer-2) var(--spacer-0);
+}
+
+a,
+a:visited {
+  color: var(--color-accent-500);
+  font-weight: var(--font-weight-bold);
+  text-decoration: none;
+}
+
+a:active,
+a:focus,
+a:hover {
+  color: var(--color-accent-700);
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  margin: 0;
+  padding: 0;
 }
 </style>

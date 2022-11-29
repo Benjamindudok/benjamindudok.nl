@@ -28,7 +28,8 @@ const classes = computed(() => (({
 }
 
 .content-section__title {
-  flex-shrink: 0;
+  flex-shrink: 0.5;
+  font-size: var(--font-size-3);
   margin: var(--spacer-2) var(--spacer-0);
   padding: 0;
 }
