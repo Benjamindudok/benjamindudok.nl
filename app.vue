@@ -69,18 +69,16 @@
   box-sizing: border-box;
 }
 
-html,
-body {
-  height: 100%;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-family-heading);
 }
 
-#__nuxt {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-.content {
-  flex: 1 0 auto;
+p {
+  margin: var(--spacer-2) var(--spacer-0);
 }
 </style>

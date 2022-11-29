@@ -26,6 +26,7 @@
   display: flex;
   justify-content: space-between;
   flex-shrink: 0;
+  margin-top: var(--spacer-6);
   padding: var(--spacer-4) var(--spacer-6);
 }
 
