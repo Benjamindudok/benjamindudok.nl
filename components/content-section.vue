@@ -10,11 +10,12 @@
 <script lang="ts" setup>
 import { computed } from '@vue/reactivity';
 
-const props = defineProps<{ title?: string, single?: boolean }>();
+const props = defineProps<{ title?: string, single?: boolean, spacious?: boolean }>();
 
 const classes = computed(() => (({
   'content-section': true,
-  'content-section--single': props.single
+  'content-section--single': props.single,
+  'content-section--spacious': props.spacious
 })))
 </script>
 
@@ -37,6 +38,13 @@ const classes = computed(() => (({
 .content-section__content {
   display: flex;
   gap: var(--spacer-5);
+  width: 100%;
+}
+
+.content-section__content * {
+  flex-shrink: 1;
+  flex-grow: 1;
+  flex-basis: 50%;
 }
 
 .content-section--single {
@@ -44,6 +52,10 @@ const classes = computed(() => (({
   flex-direction: column;
   justify-content: center;
   gap: var(--spacer-0);
+}
+
+.content-section--spacious {
+  padding: calc(var(--spacer-6) * 2) var(--spacer-0);
 }
 
 .content-section--single .content-section__title {

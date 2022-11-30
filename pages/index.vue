@@ -7,12 +7,12 @@
       </div>
     </div>
 
-    <content-section title="Lorem ipsum dolor sit amet">
+    <content-section title="Lorem ipsum dolor sit amet" :spacious="true">
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In feugiat nibh vel pretium tempus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget orci vel justo ultrices finibus non ut nulla. Pellentesque dignissim odio et urna rhoncus vestibulum in sit amet tortor. Aliquam molestie id libero quis porttitor. Nullam ornare efficitur mauris in bibendum.</p>
-      <p>Proin sodales risus purus, id iaculis dolor rutrum eu. Vivamus at mi neque. Vivamus ornare, enim quis porta scelerisque, neque arcu rhoncus sapien, quis malesuada libero arcu ut tellus. In nec efficitur mi, non dignissim magna. Nullam volutpat placerat velit. Curabitur nec ultricies diam. <nuxt-link to="/manifest">Read my manifest</nuxt-link></p>
+      <p>Proin sodales risus purus, id iaculis dolor rutrum eu. Vivamus at mi neque. Vivamus ornare, enim quis porta scelerisque, neque arcu rhoncus sapien, quis malesuada libero arcu ut tellus. In nec efficitur mi, non dignissim magna. Nullam volutpat placerat velit. Curabitur nec ultricies diam.</p>
     </content-section>
 
-    <content-section :single="true">
+    <content-section :single="true" :spacious="true">
       <ul class="home__manifest">
         <li class="home__manifest-principle">
           <h4 class="home__manifest-title">Lorem ipsum dolor sit amet</h4>
@@ -37,7 +37,7 @@
       </ul>
     </content-section>
 
-    <content-section title="Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..." :single="true">
+    <content-section title="Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..." :single="true" :spacious="true">
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In feugiat nibh vel pretium tempus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget orci vel justo ultrices finibus non ut nulla. Pellentesque dignissim odio et urna rhoncus vestibulum in sit amet tortor. Aliquam molestie id libero quis porttitor. Nullam ornare efficitur mauris in bibendum.</p>
     </content-section>
   </div>
@@ -101,5 +101,5 @@
 </style>
 
 <script lang="ts" setup>
-import ContentSection from "../components/content-section";
+import ContentSection from "../components/content-section.vue";
 </script>

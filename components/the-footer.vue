@@ -11,17 +11,15 @@
     </p>
   </div>
   <ul class="footer__contacts">
-    <li class="footer__contact">
-      <feather-linkedin />
-    </li>
-    <li class="footer__contact">
-      <feather-github />
-    </li>
+    <a class="footer__contact" target="_blank" href="mailto:benjaminwd@gmail.com"><feather-mail /></a>
+    <a class="footer__contact" target="_blank" href="https://www.linkedin.com/in/benjaminwdudok/"><feather-linkedin /></a>
+    <a class="footer__contact" target="_blank" href="https://github.com/Benjamindudok"><feather-github /></a>
   </ul>
 </footer>
 </template>
 
 <script lang="ts" setup>
+import FeatherMail from "./icons/feather-mail.vue";
 import FeatherLinkedin from "./icons/feather-linkedin.vue";
 import FeatherGithub from "~/components/icons/feather-github.vue";
 </script>
@@ -63,7 +61,6 @@ import FeatherGithub from "~/components/icons/feather-github.vue";
 }
 
 .footer__description {
-  /*flex: 1 auto;*/
   font-size: var(--font-size-5);
 }
 
@@ -81,12 +78,17 @@ import FeatherGithub from "~/components/icons/feather-github.vue";
   padding: 0;
 }
 
-.footer__contact {
-  /*background: var(--color-neutral-800);*/
+.footer__contact,
+.footer__contact:visited {
+  color: var(--font-color);
   display: block;
   height: 32px;
   margin: var(--spacer-0) var(--spacer-2);
   width: 32px;
+}
+
+.footer__contact:hover {
+  color: var(--color-accent-800);
 }
 
 .footer__contact:last-child {
