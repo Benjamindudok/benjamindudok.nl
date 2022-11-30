@@ -10,46 +10,23 @@
         <resume-item title="Frontend developer"
                      subtitle="Blis Digital"
                      timestamp="June 2017 - current"
-                     description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis vehicula urna, eget rutrum neque. Morbi consequat interdum arcu, non ullamcorper velit lobortis ut. Pellentesque ultrices, felis et scelerisque iaculis, risus ipsum pulvinar magna, vel mollis felis mi ut lorem.">
-          <h5>Notable projects</h5>
+                     description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis vehicula urna, eget rutrum neque. Morbi consequat interdum arcu, non ullamcorper velit lobortis ut. Pellentesque ultrices, felis et scelerisque iaculis, risus ipsum pulvinar magna, vel mollis felis mi ut lorem."
+                     content-title="Notable projects">
           <ul>
-            <li>
-              <h6>Powertrade</h6>
-              <p>Vivamus ornare, enim quis porta scelerisque, neque arcu rhoncus sapien, quis malesuada libero arcu ut tellus</p>
-            </li>
-            <li>
-              <h6>Baarda</h6>
-              <p>Vivamus ornare, enim quis porta scelerisque, neque arcu rhoncus sapien, quis malesuada libero arcu ut tellus</p>
-            </li>
-            <li>
-              <h6>Exact</h6>
-              <p>Vivamus ornare, enim quis porta scelerisque, neque arcu rhoncus sapien, quis malesuada libero arcu ut tellus</p>
-            </li>
+            <resume-subitem title="Powertrade" description="Vivamus ornare, enim quis porta scelerisque, neque arcu rhoncus sapien, quis malesuada libero arcu ut tellus"></resume-subitem>
+            <resume-subitem title="Baarda" description="Vivamus ornare, enim quis porta scelerisque, neque arcu rhoncus sapien, quis malesuada libero arcu ut tellus"></resume-subitem>
+            <resume-subitem title="Exact" description="Vivamus ornare, enim quis porta scelerisque, neque arcu rhoncus sapien, quis malesuada libero arcu ut tellus"></resume-subitem>
           </ul>
         </resume-item>
         <resume-item title="Multimedia developer"
                      subtitle="MCW Studios"
                      timestamp="Feb. 2014 - May 2017"
-                     description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis vehicula urna, eget rutrum neque. Morbi consequat interdum arcu, non ullamcorper velit lobortis ut. Pellentesque ultrices, felis et scelerisque iaculis, risus ipsum pulvinar magna, vel mollis felis mi ut lorem.">
-          <h5>Notable projects</h5>
+                     description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis vehicula urna, eget rutrum neque. Morbi consequat interdum arcu, non ullamcorper velit lobortis ut. Pellentesque ultrices, felis et scelerisque iaculis, risus ipsum pulvinar magna, vel mollis felis mi ut lorem."
+                     content-title="Notable projects">
           <ul>
-            <li>
-              <h6>Aerokart Winscape Escape Room</h6>
-              <p>Vivamus ornare, enim quis porta scelerisque, neque arcu rhoncus sapien, quis malesuada libero arcu ut tellus</p>
-            </li>
-            <li>
-              <h6>
-                Opgeschaalde Ambulancezorg (Nederland)</h6>
-              <p>Vivamus ornare, enim quis porta scelerisque, neque arcu rhoncus sapien, quis malesuada libero arcu ut tellus</p>
-            </li>
-            <li>
-              <h6>Hidrodoe</h6>
-              <p>Vivamus ornare, enim quis porta scelerisque, neque arcu rhoncus sapien, quis malesuada libero arcu ut tellus</p>
-            </li>
-            <li>
-              <h6>MCW Website</h6>
-              <p>Vivamus ornare, enim quis porta scelerisque, neque arcu rhoncus sapien, quis malesuada libero arcu ut tellus</p>
-            </li>
+            <resume-subitem title="Aerokart Winscape Escape Room" description="Vivamus ornare, enim quis porta scelerisque, neque arcu rhoncus sapien, quis malesuada libero arcu ut tellus"></resume-subitem>
+            <resume-subitem title="Opgeschaalde Ambulancezorg (Nederland)" description="Vivamus ornare, enim quis porta scelerisque, neque arcu rhoncus sapien, quis malesuada libero arcu ut tellus"></resume-subitem>
+            <resume-subitem title="Hidrodoe" description="Vivamus ornare, enim quis porta scelerisque, neque arcu rhoncus sapien, quis malesuada libero arcu ut tellus"></resume-subitem>
           </ul>
         </resume-item>
         <resume-item title="Graduate internship"
@@ -102,7 +79,9 @@ import ResumeItem from "../components/resume-item.vue";
 }
 
 .resume__title {
+  border-top: 1px solid var(--font-color);
   font-size: var(--font-size-3);
   margin: 0;
+  padding-top: var(--spacer-3);
 }
 </style>

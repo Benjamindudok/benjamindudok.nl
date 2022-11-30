@@ -65,7 +65,8 @@ import FeatherGithub from "~/components/icons/feather-github.vue";
 }
 
 .footer__divider {
-  background: var(--color-neutral-800);
+  background: var(--font-color);
+  border: none;
   height: var(--spacer-6);
   margin: var(--spacer-0) var(--spacer-3);
   width: 1px;

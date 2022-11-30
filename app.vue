@@ -30,6 +30,7 @@
   --color-neutral-100: #F3F3F3;
   --color-neutral-000: #FDFDFD;
   --font-color: var(--color-neutral-900);
+  --font-color-light: var(--color-neutral-700);
   --font-family: 'Lato', sans-serif;
   --font-family-heading: 'Montserrat', sans-serif;
   --font-size-00: 4.209rem;
@@ -61,6 +62,7 @@
 [data-color-scheme='dark'] {
   --color-background: var(--color-neutral-900);
   --font-color: var(--color-neutral-000);
+  --font-color-light: var(--color-neutral-600);
 }
 
 @media (min-width: 960px) {
