@@ -1,5 +1,5 @@
 <template>
-  <NuxtLayout class="content">
+  <NuxtLayout>
     <NuxtPage/>
   </NuxtLayout>
 </template>
@@ -9,6 +9,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@300;700;900&display=swap');
 
 :root {
+  --color-accent-900: #F20055;
+  --color-accent-800: #FB2576;
+  --color-accent-700: #8A00C9;
+  --color-accent-600: #3F0071;
+  --color-accent-500: #0002A1;
+  --color-accent-400: #3D5DB7;
+  --color-accent-300: #79A4CE;
+  --color-accent-200: #B6D9E4;
+  --color-accent-100: #F2FAFA;
+  --color-background: #FFF;
   --color-neutral-900: #292929;
   --color-neutral-800: #525252;
   --color-neutral-700: #7A7A7A;
@@ -19,15 +29,6 @@
   --color-neutral-200: #E9E9E9;
   --color-neutral-100: #F3F3F3;
   --color-neutral-000: #FDFDFD;
-  --color-accent-900: #F20055;
-  --color-accent-800: #FB2576;
-  --color-accent-700: #8A00C9;
-  --color-accent-600: #3F0071;
-  --color-accent-500: #0002A1;
-  --color-accent-400: #3D5DB7;
-  --color-accent-300: #79A4CE;
-  --color-accent-200: #B6D9E4;
-  --color-accent-100: #F2FAFA;
   --font-color: var(--color-neutral-900);
   --font-family: 'Lato', sans-serif;
   --font-family-heading: 'Montserrat', sans-serif;
@@ -52,11 +53,14 @@
   --spacer-4: 24px;
   --spacer-5: 32px;
   --spacer-6: 48px;
+  --transition-timing: ease-in-out;
+  --transition-duration: .4s;
+  --transition-default: all var(--transition-timing) var(--transition-duration);
+}
 
-  color: var(--font-color);
-  font-family: var(--font-family);
-  font-size: 16px;
-  line-height: var(--line-height);
+[data-color-scheme='dark'] {
+  --color-background: var(--color-neutral-900);
+  --font-color: var(--color-neutral-000);
 }
 
 @media (min-width: 960px) {
@@ -69,6 +73,16 @@
   box-sizing: border-box;
 }
 
+html,
+body {
+  background-color: var(--color-background);
+  color: var(--font-color);
+  font-family: var(--font-family);
+  font-size: 16px;
+  line-height: var(--line-height);
+  transition: var(--transition-default);
+}
+
 h1,
 h2,
 h3,
@@ -78,6 +92,7 @@ h6 {
   font-family: var(--font-family-heading);
   font-weight: var(--font-weight-black);
   line-height: var(--line-height-condensed);
+  transition: var(--transition-default);
 }
 
 h1 {
@@ -117,6 +132,7 @@ a:visited {
   color: var(--color-accent-500);
   font-weight: var(--font-weight-bold);
   text-decoration: none;
+  transition: var(--transition-default);
 }
 
 a:active,

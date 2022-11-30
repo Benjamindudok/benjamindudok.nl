@@ -11,13 +11,20 @@
     </p>
   </div>
   <ul class="footer__contacts">
-    <li class="footer__contact"></li>
-    <li class="footer__contact"></li>
-    <li class="footer__contact"></li>
-    <li class="footer__contact"></li>
+    <li class="footer__contact">
+      <feather-linkedin />
+    </li>
+    <li class="footer__contact">
+      <feather-github />
+    </li>
   </ul>
 </footer>
 </template>
+
+<script lang="ts" setup>
+import FeatherLinkedin from "./icons/feather-linkedin.vue";
+import FeatherGithub from "~/components/icons/feather-github.vue";
+</script>
 
 <style>
 
@@ -75,7 +82,7 @@
 }
 
 .footer__contact {
-  background: var(--color-neutral-800);
+  /*background: var(--color-neutral-800);*/
   display: block;
   height: 32px;
   margin: var(--spacer-0) var(--spacer-2);
