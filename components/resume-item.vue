@@ -22,7 +22,7 @@ const props = defineProps<{
 }>();
 </script>
 
-<style scoped>
+<style>
 .resume-item {
   margin: 0;
   padding: var(--spacer-3) var(--spacer-0);
