@@ -1,11 +1,10 @@
 <template>
-<header class="navigation">
-  <div class="navigation__brand">
-    <feather-mail /><nuxt-link class="navigation__brand-title" to="/">Benjamin Dudok</nuxt-link>
+<header class="header">
+  <div class="header__brand">
+    <a class="header__brand-contact" href="mailto:benjaminwd@gmail.com"><feather-mail /></a><nuxt-link class="header__brand-title" to="/">Benjamin Dudok</nuxt-link>
   </div>
-  <nuxt-link class="navigation__link" :exact="true" exact-active-class="navigation__link--is-active" to="/">Home</nuxt-link>
-  <nuxt-link class="navigation__link" :exact="true" exact-active-class="navigation__link--is-active" to="/resume">Resume</nuxt-link>
-  <button class="navigation__theme-switcher" type="button" @click="toggleCurrentTheme">
+  <the-navigation></the-navigation>
+  <button class="header__theme-switcher" type="button" @click="toggleCurrentTheme">
     <feather-night v-if="currentColorScheme === 'light'" />
     <feather-day v-if="currentColorScheme === 'dark'" />
   </button>
@@ -13,10 +12,11 @@
 </template>
 
 <script lang="ts" setup>
+import TheNavigation from "~/components/the-navigation.vue";
 import FeatherMail from "./icons/feather-mail.vue";
 import FeatherNight from "./icons/feather-night.vue";
 import FeatherDay from "./icons/feather-day.vue";
-import {ref} from "@vue/reactivity";
+import { ref } from "@vue/reactivity";
 
 const currentColorScheme = ref('light');
 
@@ -29,9 +29,8 @@ function setCurrentTheme(scheme: 'light'|'dark') {
 }
 
 function initCurrentTheme() {
-  const $body = document.querySelector('body') as HTMLBodyElement;
   const prefersDarkColorScheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
-  const hasSelectedDarkColorScheme = $body.getAttribute('data-color-scheme') === 'dark' || localStorage.getItem('color-scheme') === 'dark';
+  const hasSelectedDarkColorScheme = localStorage.getItem('color-scheme') === 'dark';
   if (prefersDarkColorScheme || hasSelectedDarkColorScheme) {
     setCurrentTheme('dark');
   }
@@ -54,7 +53,7 @@ initCurrentTheme();
 </script>
 
 <style>
-.navigation {
+.header {
   align-items: center;
   display: flex;
   margin: 0;
@@ -62,13 +61,26 @@ initCurrentTheme();
   width: 100%;
 }
 
-.navigation__brand {
+.header__brand {
+  align-items: center;
   display: flex;
+  gap: var(--spacer-3);
   margin-right: auto;
 }
 
-.navigation__brand-title,
-.navigation__brand-title:visited {
+.header__brand-contact {
+  color: var(--font-color);
+  display: block;
+  line-height: 0;
+  margin-bottom: var(--spacer-1);
+}
+
+.header__brand-contact:hover {
+  color: var(--color-accent-800);
+ }
+
+.header__brand-title,
+.header__brand-title:visited {
   color: var(--font-color);
   letter-spacing: -2px;
   font-family: var(--font-family-heading);
@@ -77,23 +89,11 @@ initCurrentTheme();
   text-decoration: none;
 }
 
-
-.navigation__link,
-.navigation__link:visited {
-  color: var(--font-color);
-  font-size: var(--font-size-5);
-  font-weight: var(--font-weight-bold);
-  padding: var(--spacer-3) var(--spacer-5);
-  text-decoration: none;
+.header__brand-title:hover {
+  color: var(--color-accent-800);
 }
 
-.navigation__link--is-active,
-.navigation__link--is-active:visited,
-.navigation__link:active {
-  color: var(--color-accent-900);
-}
-
-.navigation__theme-switcher {
+.header__theme-switcher {
   align-items: center;
   background: none;
   border: none;
