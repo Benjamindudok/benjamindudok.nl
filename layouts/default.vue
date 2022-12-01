@@ -1,9 +1,10 @@
 <template>
-    <TheHeader />
-    <div class="content">
+  <TheBackground />
+    <TheHeader class="layout__header" />
+    <div class="layout__content">
       <slot></slot>
     </div>
-    <TheFooter />
+    <TheFooter class="layout__footer" />
 </template>
 
 <style>
@@ -18,7 +19,14 @@ body {
   height: 100%;
 }
 
-.content {
+.layout__header,
+.layout__content,
+.layout__footer {
+  position: relative;
+  z-index: 2;
+}
+
+.layout__content {
   flex: 1 0 auto;
 }
 </style>

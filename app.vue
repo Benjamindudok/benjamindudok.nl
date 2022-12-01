@@ -19,6 +19,8 @@
   --color-accent-200: #B6D9E4;
   --color-accent-100: #F2FAFA;
   --color-background: #FFF;
+  --color-background-alternate: var(--color-neutral-000);
+  --color-background-highlight: var(--color-neutral-400);
   --color-neutral-900: #292929;
   --color-neutral-800: #525252;
   --color-neutral-700: #7A7A7A;
@@ -61,6 +63,8 @@
 
 [data-color-scheme='dark'] {
   --color-background: var(--color-neutral-900);
+  --color-background-alternate: var(--color-neutral-800);
+  --color-background-highlight: var(--color-neutral-500);
   --font-color: var(--color-neutral-000);
   --font-color-light: var(--color-neutral-600);
 }

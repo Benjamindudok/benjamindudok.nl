@@ -12,7 +12,6 @@
 </template>
 
 <script lang="ts" setup>
-import TheNavigation from "~/components/the-navigation.vue";
 import FeatherMail from "./icons/feather-mail.vue";
 import FeatherNight from "./icons/feather-night.vue";
 import FeatherDay from "./icons/feather-day.vue";
