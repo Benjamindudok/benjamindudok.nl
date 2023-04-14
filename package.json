@@ -8,10 +8,13 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "nuxt": "3.0.0"
+    "@types/p5": "^1.6.0",
+    "nuxt": "3.3.3"
   },
   "dependencies": {
+    "@vueuse/core": "^9.13.0",
     "feather-icons": "^4.29.0",
-    "normalize.css": "^8.0.1"
+    "normalize.css": "^8.0.1",
+    "p5": "^1.6.0"
   }
 }
