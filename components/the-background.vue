@@ -1,7 +1,7 @@
 <template>
   <div id="background" ref="background" class="background">
   </div>
-  <span class="background__caption"><button type="button" @click="generateUniverse(sketch)">regenerate</button></span>
+  <span class="background__caption">Generated universe with {{planetCount}} planets, {{largeObjectCount}} large objects, {{smallObjectCount}} small objects - <button type="button" @click="generateUniverse(sketch)">regenerate</button></span>
 </template>
 
 <script lang="ts" setup>
@@ -14,21 +14,18 @@ const enum objectTypes {
   largeObjects = 'largeObject',
   smallObjects = 'smallObject',
 }
+
 interface DrawableObjectConfig {
   type: objectTypes;
-  amount: number,
-  minAngle: number,
-  minRadius: number,
-  minSize: number,
-  minSpeed: number,
-  minOffset: number,
-  maxAngle: number,
-  maxRadius: number,
-  maxSize: number,
-  maxSpeed: number,
-  maxOffset: number,
+  amount: { min: number; max: number },
+  angle: { min: number; max: number },
+  radius: { min: number; max: number },
+  size: { min: number; max: number },
+  speed: { min: number; max: number },
+  offset: { min: number; max: number },
   colors: string[],
 }
+
 interface DrawableObjectInstance {
   id: string;
   type: objectTypes,
@@ -40,6 +37,7 @@ interface DrawableObjectInstance {
   size: number;
   speed: number;
 }
+
 interface Nebula {
   x1: number;
   x2: number;
@@ -71,7 +69,14 @@ const config = reactive<{
     light: string,
     dark: string,
   }
-  objects: { [objectTypes.planets]: DrawableObjectConfig, [objectTypes.largeObjects]: DrawableObjectConfig, [objectTypes.smallObjects]: DrawableObjectConfig }
+  objects: { [objectTypes.planets]: DrawableObjectConfig, [objectTypes.largeObjects]: DrawableObjectConfig, [objectTypes.smallObjects]: DrawableObjectConfig },
+  nebula: {
+    height: { min: number; max: number },
+    width: { min: number; max: number },
+    angle: { min: number; max: number },
+    colors: string[];
+    points: { min: number; max: number },
+  }
 }>({
   backgroundVariations: {
     light: '#FDFDFD',
@@ -80,17 +85,12 @@ const config = reactive<{
   objects: {
     [objectTypes.planets]: {
       type: objectTypes.planets,
-      amount: 5,
-      minAngle: 20,
-      minRadius: 200,
-      minSize: 30,
-      minSpeed: 20,
-      minOffset: 0,
-      maxAngle: 45,
-      maxRadius: 800,
-      maxSize: 80,
-      maxSpeed: 200,
-      maxOffset: 0,
+      amount: {min: 1, max: 8},
+      angle: {min: 20, max: 45},
+      radius: {min: 200, max: 800},
+      size: {min: 30, max: 80},
+      speed: {min: 20, max: 200},
+      offset: {min: 0, max: 0},
       colors: [
         '#F20055',
         '#FB2576',
@@ -101,17 +101,12 @@ const config = reactive<{
     },
     [objectTypes.largeObjects]: {
       type: objectTypes.largeObjects,
-      amount: 200,
-      minAngle: 0,
-      minRadius: 700,
-      minSize: 10,
-      minSpeed: 2,
-      minOffset: 0,
-      maxAngle: 0,
-      maxRadius: 900,
-      maxSize: 20,
-      maxSpeed: 100,
-      maxOffset: 0,
+      amount: {min: 20, max: 200},
+      angle: {min: 0, max: 0},
+      radius: {min: 700, max: 900},
+      size: {min: 10, max: 20},
+      speed: {min: 2, max: 100},
+      offset: {min: 0, max: 0},
       colors: [
         '#7A7A7A50',
         '#A3A3A350',
@@ -121,17 +116,12 @@ const config = reactive<{
     },
     [objectTypes.smallObjects]: {
       type: objectTypes.smallObjects,
-      amount: 800,
-      minAngle: 0,
-      minRadius: 300,
-      minSize: 1,
-      minSpeed: 0.1,
-      minOffset: 0,
-      maxAngle: 0,
-      maxRadius: 1000,
-      maxSize: 5,
-      maxSpeed: 50,
-      maxOffset: 0,
+      amount: {min: 600, max: 1000},
+      angle: {min: 0, max: 0},
+      radius: {min: 300, max: 1000},
+      size: {min: 1, max: 5},
+      speed: {min: 0.1, max: 50},
+      offset: {min: 0, max: 0},
       colors: [
         '#3D5DB7',
         '#79A4CE',
@@ -139,17 +129,49 @@ const config = reactive<{
         '#F2FAFA',
       ]
     }
+  },
+  nebula: {
+    height: { min: 200, max: 500},
+    width: { min: 400, max: 900},
+    angle: { min: -20, max: 20},
+    points: { min: 0, max: 20},
+    colors: [
+      '#F2005505',
+      '#FB257605',
+      '#8A00C905',
+      '#3F007105',
+      '#0002A105',
+      '#3D5DB705',
+      '#79A4CE05',
+      '#B6D9E405',
+      '#F2FAFA05',
+    ],
   }
 });
 const isDarkMode = ref(false);
-const universe = reactive({ x: 0, y: 0, angle: 0 });
+const universe = reactive({x: 0, y: 0, angle: 0});
 const universeObjects = ref<DrawableObjectInstance[]>([]);
-const universeNebula = reactive<Nebula>({ x1: 0, x2: 0, x3: 0, x4: 0, y1: 0, y2: 0, y3: 0, y4: 0, rotation: 0, points: [] });
+const universeNebula = reactive<Nebula>({
+  x1: 0,
+  x2: 0,
+  x3: 0,
+  x4: 0,
+  y1: 0,
+  y2: 0,
+  y3: 0,
+  y4: 0,
+  rotation: 0,
+  points: []
+});
 const FPS = 60;
 
 const backgroundColor = computed(() => {
   return isDarkMode.value ? config.backgroundVariations.dark : config.backgroundVariations.light;
-})
+});
+
+const planetCount = computed(() => universeObjects.value.filter((o) => o.type === objectTypes.planets).length);
+const smallObjectCount = computed(() => universeObjects.value.filter((o) => o.type === objectTypes.smallObjects).length);
+const largeObjectCount = computed(() => universeObjects.value.filter((o) => o.type === objectTypes.largeObjects).length);
 
 const mutationObserver = new MutationObserver(() => {
   isDarkMode.value = body?.getAttribute('data-color-scheme') === 'dark';
@@ -177,13 +199,13 @@ function calculateProperty(sk: p5InstanceExtensions, min: number, max: number, r
 
 function calculateAngle(sk: p5InstanceExtensions, data: DrawableObjectConfig) {
   return (data.type === objectTypes.planets || data.type === objectTypes.largeObjects) && shouldChangeProperty(sk, 85)
-      ? calculateProperty(sk, data.minAngle, data.maxAngle) * (Math.round(Math.random()) * 2 - 1)
+      ? calculateProperty(sk, data.angle.min, data.angle.max) * (Math.round(Math.random()) * 2 - 1)
       : 0;
 }
 
 function calculatePosition(sk: p5InstanceExtensions, data: DrawableObjectConfig) {
   return data.type === objectTypes.planets && shouldChangeProperty(sk, 50)
-      ? calculateProperty(sk, data.minOffset, data.maxOffset)
+      ? calculateProperty(sk, data.offset.min, data.offset.max)
       : 0;
 }
 
@@ -191,7 +213,8 @@ function generateUniverse(sk: p5InstanceExtensions) {
   universeObjects.value = [];
 
   Object.entries(config.objects).forEach(([objectType, data]) => {
-    for(let a = 0; a<data.amount; a+=1){
+    const amount = sk.random(data.amount.min, data.amount.max);
+    for (let a = 0; a < amount; a += 1) {
       const angle = calculateAngle(sk, data);
       const offsetX = angle ? calculatePosition(sk, data) : 0; // only change offset is angle is changed, so we don't get colliding radius
 
@@ -199,12 +222,12 @@ function generateUniverse(sk: p5InstanceExtensions) {
         id: `${objectType}-${a}`,
         type: objectType as objectTypes,
         angle,
-        radius: calculateProperty(sk, data.minRadius, data.maxRadius),
+        radius: calculateProperty(sk, data.radius.min, data.radius.max),
         color: data.colors[a % data.colors.length],
         offsetX,
-        offsetPosition: sk.TAU / data.amount * a,
-        size: calculateProperty(sk, data.minSize,data.maxSize),
-        speed: calculateProperty(sk, data.minSpeed,data.maxSpeed, false) * (Math.round(Math.random()) * 2 - 1),
+        offsetPosition: sk.TAU / amount * a,
+        size: calculateProperty(sk, data.size.min, data.size.max),
+        speed: calculateProperty(sk, data.speed.min, data.speed.max, false) * (Math.round(Math.random()) * 2 - 1),
       })
     }
   })
@@ -223,11 +246,11 @@ function generateUniverse(sk: p5InstanceExtensions) {
     y2: Math.floor(sk.random(200, 500)),
     y3: Math.floor(sk.random(-200, -500)),
     y4: Math.floor(sk.random(-200, -500)),
-    rotation: sk.random(-20, 20) * 180/sk.PI,
+    rotation: sk.random(-20, 20) * 180 / sk.PI,
     points: [],
   });
 
-  let steps = 10;
+  let steps = sk.random(config.nebula.points.min, config.nebula.points.max);
   for (let i = 0; i < steps; i++) {
     const size = sk.random(50, 900);
     let t = i / steps;
@@ -239,20 +262,21 @@ function generateUniverse(sk: p5InstanceExtensions) {
       tr: size / sk.random(1, 6),
       br: size / sk.random(1, 6),
       bl: size / sk.random(1, 6),
-      color: '#3F007105',
+      color: config.nebula.colors[Math.floor(sk.random(0, config.nebula.colors.length -1))],
     });
   }
 }
+
 function drawObject(sk: p5InstanceExtensions, drawableObject: DrawableObjectInstance) {
-  const t = sk.frameCount/FPS; //divide frameCount by FPS
+  const t = sk.frameCount / FPS; //divide frameCount by FPS
   const a = drawableObject.offsetPosition + (t / drawableObject.speed);
   const x = drawableObject.radius * sk.cos(a);
-  const y = drawableObject.radius * sk.sin(a) * sk.asin(1/3);
+  const y = drawableObject.radius * sk.sin(a) * sk.asin(1 / 3);
 
   // save drawing state,
   // so we can reset the rotation after this object
   sk.push();
-  sk.rotate(drawableObject.angle * sk.PI/180);
+  sk.rotate(drawableObject.angle * sk.PI / 180);
 
   switch (drawableObject.type) {
     case objectTypes.largeObjects:
@@ -260,8 +284,8 @@ function drawObject(sk: p5InstanceExtensions, drawableObject: DrawableObjectInst
     case objectTypes.planets:
       sk.noFill();
       sk.strokeWeight(1);
-      sk.stroke('#D6D6D650');
-      sk.ellipse(0 + drawableObject.offsetX, 0, drawableObject.radius * 2, drawableObject.radius * 2  * sk.asin(1/3));
+      sk.stroke(drawableObject.color + '20');
+      sk.ellipse(0 + drawableObject.offsetX, 0, drawableObject.radius * 2, drawableObject.radius * 2 * sk.asin(1 / 3));
       break;
     case objectTypes.smallObjects:
       break;
@@ -269,7 +293,7 @@ function drawObject(sk: p5InstanceExtensions, drawableObject: DrawableObjectInst
 
   sk.stroke(drawableObject.color);
   sk.strokeWeight(drawableObject.size);
-  sk.point(x + drawableObject.offsetX, y );
+  sk.point(x + drawableObject.offsetX, y);
 
   // restore drawing state
   sk.pop();
@@ -278,7 +302,7 @@ function drawObject(sk: p5InstanceExtensions, drawableObject: DrawableObjectInst
 onMounted(() => {
   sketch = new p5((sk: (p5InstanceExtensions & { setup: () => void, draw: () => void })) => {
     sk.setup = () => {
-      const { width, height } = getBackgroundSize();
+      const {width, height} = getBackgroundSize();
       sk.createCanvas(width, height).parent(background.value!);
 
       generateUniverse(sk);
@@ -287,8 +311,8 @@ onMounted(() => {
     }
     sk.draw = () => {
       sk.background(backgroundColor.value + '80');
-      sk.translate(sk.width/2 + universe.x, sk.height/2 + universe.y);
-      sk.rotate(universe.angle * sk.PI/180);
+      sk.translate(sk.width / 2 + universe.x, sk.height / 2 + universe.y);
+      sk.rotate(universe.angle * sk.PI / 180);
 
       universeNebula.points.forEach((p, i) => {
         sk.push();
@@ -307,7 +331,7 @@ onMounted(() => {
   });
 
   sketch.windowResized = async () => {
-    const { width, height } = getBackgroundSize();
+    const {width, height} = getBackgroundSize();
     sketch.resizeCanvas(width, height);
   }
 })
@@ -332,6 +356,6 @@ onBeforeUnmount(() => {
   position: absolute;
   bottom: 0;
   left: 0;
-  z-index:10;
+  z-index: 10;
 }
 </style>
