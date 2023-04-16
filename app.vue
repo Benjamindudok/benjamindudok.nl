@@ -18,18 +18,19 @@
   --color-accent-300: #79A4CE;
   --color-accent-200: #B6D9E4;
   --color-accent-100: #F2FAFA;
-  --color-background: #FFF;
+  --color-background: var(--color-neutral-000);
   --color-background-alternate: var(--color-neutral-000);
   --color-background-highlight: var(--color-neutral-400);
-  --color-neutral-900: #292929;
-  --color-neutral-800: #525252;
-  --color-neutral-700: #7A7A7A;
-  --color-neutral-600: #A3A3A3;
-  --color-neutral-500: #CCCCCC;
-  --color-neutral-400: #D6D6D6;
-  --color-neutral-300: #DFDFDF;
-  --color-neutral-200: #E9E9E9;
-  --color-neutral-100: #F3F3F3;
+  --color-neutral-900: #050608;
+  --color-neutral-800: #0B0D12;
+  --color-neutral-700: #10131C;
+  --color-neutral-600: #151A26;
+  --color-neutral-500: #192030;
+  --color-neutral-400: #1D273C;
+  --color-neutral-300: #212D47;
+  --color-neutral-200: #243453;
+  --color-neutral-100: #738797;
+  --color-neutral-050: #BECBCF;
   --color-neutral-000: #FDFDFD;
   --font-color: var(--color-neutral-900);
   --font-color-light: var(--color-neutral-700);
@@ -63,10 +64,10 @@
 
 [data-color-scheme='dark'] {
   --color-background: var(--color-neutral-900);
-  --color-background-alternate: var(--color-neutral-800);
+  --color-background-alternate: var(--color-neutral-900);
   --color-background-highlight: var(--color-neutral-500);
   --font-color: var(--color-neutral-000);
-  --font-color-light: var(--color-neutral-600);
+  --font-color-light: var(--color-neutral-000);
 }
 
 @media (min-width: 960px) {

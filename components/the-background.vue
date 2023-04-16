@@ -23,7 +23,7 @@ interface DrawableObjectConfig {
   size: { min: number; max: number },
   speed: { min: number; max: number },
   offset: { min: number; max: number },
-  colors: string[],
+  colors: { light: string[]; dark: string[]; },
 }
 
 interface DrawableObjectInstance {
@@ -74,13 +74,13 @@ const config = reactive<{
     height: { min: number; max: number },
     width: { min: number; max: number },
     angle: { min: number; max: number },
-    colors: string[];
-    points: { min: number; max: number },
+    colors: { light: string[]; dark: string[]; };
+    resolution: { min: number; max: number },
   }
 }>({
   backgroundVariations: {
-    light: '#FDFDFD',
-    dark: '#292929'
+    light: '#FFFFFF',
+    dark: '#0B0D12'
   },
   objects: {
     [objectTypes.planets]: {
@@ -91,64 +91,101 @@ const config = reactive<{
       size: {min: 30, max: 80},
       speed: {min: 20, max: 200},
       offset: {min: 0, max: 0},
-      colors: [
-        '#F20055',
-        '#FB2576',
-        '#8A00C9',
-        '#3F0071',
-      ]
+      colors: {
+        light: [
+          '#F20055',
+          '#FB2576',
+          '#8A00C9',
+          '#3F0071',
+        ],
+        dark: [
+          '#F20055',
+          '#FB2576',
+          '#8A00C9',
+          '#3F0071',
+        ]
+      }
       // moons...
     },
     [objectTypes.largeObjects]: {
       type: objectTypes.largeObjects,
       amount: {min: 20, max: 200},
       angle: {min: 0, max: 0},
-      radius: {min: 700, max: 900},
+      radius: {min: 800, max: 1000},
       size: {min: 10, max: 20},
       speed: {min: 2, max: 100},
       offset: {min: 0, max: 0},
-      colors: [
-        '#7A7A7A50',
-        '#A3A3A350',
-        '#CCCCCC50',
-        '#D6D6D650',
-      ]
+      colors: {
+        light: [
+          '#212D47',
+          '#243453',
+          '#738797',
+        ],
+        dark: [
+          '#8C99A3',
+          '#BCC4C8',
+          '#FDFDFD',
+        ]
+      }
     },
     [objectTypes.smallObjects]: {
       type: objectTypes.smallObjects,
       amount: {min: 600, max: 1000},
       angle: {min: 0, max: 0},
-      radius: {min: 300, max: 1000},
+      radius: {min: 300, max: 1500},
       size: {min: 1, max: 5},
       speed: {min: 0.1, max: 50},
       offset: {min: 0, max: 0},
-      colors: [
-        '#3D5DB7',
-        '#79A4CE',
-        '#B6D9E4',
-        '#F2FAFA',
-      ]
+      colors: {
+        light: [
+          '#0002A1',
+          '#3D5DB7',
+          '#009DAE',
+          '#212D47',
+          '#243453',
+          '#738797',
+          '#BECBCF',
+        ],
+        dark: [
+          '#009DAE',
+          '#71DFE7',
+          '#C2FFF9',
+          '#3D5DB7',
+          '#79A4CE',
+          '#B6D9E4',
+          '#F2FAFA',
+        ]
+      }
     }
   },
   nebula: {
     height: { min: 200, max: 500},
     width: { min: 400, max: 900},
     angle: { min: -20, max: 20},
-    points: { min: 0, max: 20},
-    colors: [
-      '#F2005505',
-      '#FB257605',
-      '#8A00C905',
-      '#3F007105',
-      '#0002A105',
-      '#3D5DB705',
-      '#79A4CE05',
-      '#B6D9E405',
-      '#F2FAFA05',
-    ],
+    resolution: { min: 5, max: 40},
+    colors: {
+      light: [
+        '#F20055',
+        '#FB2576',
+        '#8A00C9',
+        '#3F0071',
+        '#0002A1',
+        '#3D5DB7',
+        '#79A4CE',
+      ],
+      dark: [
+        '#F20055',
+        '#FB2576',
+        '#8A00C9',
+        '#3F0071',
+        '#0002A1',
+        '#3D5DB7',
+        '#79A4CE',
+      ]
+    },
   }
 });
-const isDarkMode = ref(false);
+const isDarkMode = ref(body?.getAttribute('data-color-scheme') === 'dark');
 const universe = reactive({x: 0, y: 0, angle: 0});
 const universeObjects = ref<DrawableObjectInstance[]>([]);
 const universeNebula = reactive<Nebula>({
@@ -165,6 +202,7 @@ const universeNebula = reactive<Nebula>({
 });
 const FPS = 60;
 
+const colorKey = computed(() => isDarkMode.value ? 'dark' : 'light');
 const backgroundColor = computed(() => {
   return isDarkMode.value ? config.backgroundVariations.dark : config.backgroundVariations.light;
 });
@@ -223,7 +261,7 @@ function generateUniverse(sk: p5InstanceExtensions) {
         type: objectType as objectTypes,
         angle,
         radius: calculateProperty(sk, data.radius.min, data.radius.max),
-        color: data.colors[a % data.colors.length],
+        color: data.colors[colorKey.value][a % data.colors[colorKey.value].length],
         offsetX,
         offsetPosition: sk.TAU / amount * a,
         size: calculateProperty(sk, data.size.min, data.size.max),
@@ -250,7 +288,7 @@ function generateUniverse(sk: p5InstanceExtensions) {
     points: [],
   });
 
-  let steps = sk.random(config.nebula.points.min, config.nebula.points.max);
+  let steps = sk.random(config.nebula.resolution.min, config.nebula.resolution.max);
   for (let i = 0; i < steps; i++) {
     const size = sk.random(50, 900);
     let t = i / steps;
@@ -262,7 +300,7 @@ function generateUniverse(sk: p5InstanceExtensions) {
       tr: size / sk.random(1, 6),
       br: size / sk.random(1, 6),
       bl: size / sk.random(1, 6),
-      color: config.nebula.colors[Math.floor(sk.random(0, config.nebula.colors.length -1))],
+      color: `${config.nebula.colors[colorKey.value][Math.floor(sk.random(0, config.nebula.colors[colorKey.value].length -1))]}10`,
     });
   }
 }
@@ -284,7 +322,7 @@ function drawObject(sk: p5InstanceExtensions, drawableObject: DrawableObjectInst
     case objectTypes.planets:
       sk.noFill();
       sk.strokeWeight(1);
-      sk.stroke(drawableObject.color + '20');
+      sk.stroke(drawableObject.color + '99');
       sk.ellipse(0 + drawableObject.offsetX, 0, drawableObject.radius * 2, drawableObject.radius * 2 * sk.asin(1 / 3));
       break;
     case objectTypes.smallObjects:
