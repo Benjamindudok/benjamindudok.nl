@@ -93,15 +93,14 @@ const config = reactive<{
       offset: {min: 0, max: 0},
       colors: {
         light: [
-          '#F20055',
-          '#FB2576',
-          '#8A00C9',
-          '#3F0071',
+          '#535353',
+          '#5F5F5F',
         ],
         dark: [
           '#F20055',
           '#FB2576',
           '#8A00C9',
+          '#3F0071',
           '#3F0071',
         ]
       }
@@ -117,9 +116,14 @@ const config = reactive<{
       offset: {min: 0, max: 0},
       colors: {
         light: [
-          '#212D47',
-          '#243453',
-          '#738797',
+          '#3C3C3C',
+          '#474747',
+          '#535353',
+          '#5F5F5F',
+          '#6B6B6B',
+          '#777777',
+          '#8D8D8D',
+          '#A3A3A3',
         ],
         dark: [
           '#8C99A3',
@@ -138,13 +142,14 @@ const config = reactive<{
       offset: {min: 0, max: 0},
       colors: {
         light: [
-          '#0002A1',
-          '#3D5DB7',
-          '#009DAE',
-          '#212D47',
-          '#243453',
-          '#738797',
-          '#BECBCF',
+          '#3C3C3C',
+          '#474747',
+          '#535353',
+          '#5F5F5F',
+          '#6B6B6B',
+          '#777777',
+          '#8D8D8D',
+          '#A3A3A3',
         ],
         dark: [
           '#009DAE',
@@ -165,22 +170,32 @@ const config = reactive<{
     resolution: { min: 5, max: 40},
     colors: {
       light: [
-        '#F20055',
-        '#FB2576',
-        '#8A00C9',
-        '#3F0071',
-        '#0002A1',
-        '#3D5DB7',
-        '#79A4CE',
+        // '#F2005515',
+        // '#FB257615',
+        // '#8A00C915',
+        // '#3F007115',
+        // '#0002A115',
+        // '#3D5DB715',
+        '#3C3C3C10',
+        '#47474710',
+        '#53535310',
+        '#5F5F5F10',
+        '#6B6B6B10',
+        '#77777710',
+        '#8D8D8D10',
+        '#A3A3A310',
+        '#B8B8B810',
+        '#CECECE10',
+        '#E4E4E410',
       ],
       dark: [
-        '#F20055',
-        '#FB2576',
-        '#8A00C9',
-        '#3F0071',
-        '#0002A1',
-        '#3D5DB7',
-        '#79A4CE',
+        '#F2005510',
+        '#FB257610',
+        '#8A00C910',
+        '#3F007110',
+        '#0002A110',
+        '#3D5DB710',
+        '#79A4CE10',
       ]
     },
   }
@@ -300,7 +315,7 @@ function generateUniverse(sk: p5InstanceExtensions) {
       tr: size / sk.random(1, 6),
       br: size / sk.random(1, 6),
       bl: size / sk.random(1, 6),
-      color: `${config.nebula.colors[colorKey.value][Math.floor(sk.random(0, config.nebula.colors[colorKey.value].length -1))]}10`,
+      color: `${config.nebula.colors[colorKey.value][Math.floor(sk.random(0, config.nebula.colors[colorKey.value].length -1))]}`,
     });
   }
 }
@@ -374,6 +389,10 @@ onMounted(() => {
   }
 })
 
+watch(isDarkMode, () => {
+  generateUniverse(sketch);
+})
+
 onBeforeUnmount(() => {
   sketch.remove();
 })
@@ -387,7 +406,7 @@ onBeforeUnmount(() => {
   position: absolute;
   top: 0;
   width: 95vw;
-  z-index: 1;
+  z-index: 0;
 }
 
 .background__caption {

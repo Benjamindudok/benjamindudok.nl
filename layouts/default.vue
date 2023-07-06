@@ -1,5 +1,4 @@
 <template>
-  <TheBackground />
     <TheHeader class="layout__header" />
     <div class="layout__content">
       <slot></slot>
@@ -20,7 +19,6 @@ body {
 }
 
 .layout__header,
-.layout__content,
 .layout__footer {
   position: relative;
   z-index: 2;

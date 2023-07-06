@@ -10,12 +10,12 @@
         <resume-item title="Frontend developer"
                      subtitle="Blis Digital"
                      timestamp="June 2017 - current"
-                     description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis vehicula urna, eget rutrum neque. Morbi consequat interdum arcu, non ullamcorper velit lobortis ut. Pellentesque ultrices, felis et scelerisque iaculis, risus ipsum pulvinar magna, vel mollis felis mi ut lorem."
+                     description="Setting up greenfield projects using VueJS and/or Angular. Working on these projects in a team. Researching new frontend tech. Coaching other frontend developers. Maintaining frontend quality among all projects."
                      content-title="Notable projects">
           <ul>
-            <resume-subitem title="Powertrade" description="Vivamus ornare, enim quis porta scelerisque, neque arcu rhoncus sapien, quis malesuada libero arcu ut tellus"></resume-subitem>
-            <resume-subitem title="Baarda" description="Vivamus ornare, enim quis porta scelerisque, neque arcu rhoncus sapien, quis malesuada libero arcu ut tellus"></resume-subitem>
-            <resume-subitem title="Exact" description="Vivamus ornare, enim quis porta scelerisque, neque arcu rhoncus sapien, quis malesuada libero arcu ut tellus"></resume-subitem>
+            <resume-subitem title="Powertrade" description="Recreated an existing old application using VueJS. "></resume-subitem>
+            <resume-subitem title="Baarda" description="Created an application to "></resume-subitem>
+            <resume-subitem title="Exact" description="Created a module in a big application in Angular. "></resume-subitem>
           </ul>
         </resume-item>
         <resume-item title="Multimedia developer"

@@ -1,4 +1,5 @@
 <template>
+  <TheBackground />
   <div class="home">
     <div class="home__header">
       <div class="home__header-content">
@@ -44,6 +45,10 @@
 </template>
 
 <style>
+.home {
+  position: relative;
+  z-index: 2;
+}
 .home__header {
   align-items: center;
   display: flex;
