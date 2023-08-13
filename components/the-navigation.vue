@@ -1,6 +1,8 @@
 <template>
-  <nuxt-link class="navigation__link" :exact="true" exact-active-class="navigation__link--is-active" to="/">Home</nuxt-link>
-  <nuxt-link class="navigation__link" :exact="true" exact-active-class="navigation__link--is-active" to="/resume">Resume</nuxt-link>
+  <nav class="navigation">
+    <a class="navigation__link" target="_blank" href="https://www.linkedin.com/in/benjaminwdudok/">Linkedin</a>
+    <a class="navigation__link" target="_blank" href="https://github.com/Benjamindudok">Github</a>
+  </nav>
 </template>
 
 <style>
@@ -13,8 +15,6 @@
   text-decoration: none;
 }
 
-.navigation__link--is-active,
-.navigation__link--is-active:visited,
 .navigation__link:active {
   color: var(--color-accent-900);
 }
@@ -23,3 +23,5 @@
   color: var(--color-accent-700);
 }
 </style>
+<script setup lang="ts">
+</script>

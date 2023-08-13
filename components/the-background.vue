@@ -1,13 +1,15 @@
 <template>
-  <div id="background" ref="background" class="background">
+  <div id="background" ref="background" class="background" :class="{ 'background--scrolled': props.hasScrolled}">
+    <div class="background__caption">
+      <span>Generated universe with <span class="background__caption-number">{{planetCount}}</span> planets, <span class="background__caption-number">{{largeObjectCount}}</span> large objects, <span class="background__caption-number">{{smallObjectCount}}</span> small objects</span>
+      <button class="background__regenerate-button" type="button" @click="generateUniverse(sketch)"><IconsFeatherRefresh :size="20" /> regenerate</button>
+    </div>
   </div>
-  <span class="background__caption">Generated universe with {{planetCount}} planets, {{largeObjectCount}} large objects, {{smallObjectCount}} small objects - <button type="button" @click="generateUniverse(sketch)">regenerate</button></span>
 </template>
 
 <script lang="ts" setup>
 import p5, {p5InstanceExtensions} from 'p5';
 import {onBeforeUnmount, computed} from "@vue/runtime-core";
-import {observableToBeFn} from "rxjs/internal/testing/TestScheduler";
 
 const enum objectTypes {
   planets = 'planet',
@@ -59,6 +61,8 @@ interface Nebula {
     color: string;
   }>
 }
+
+const props = defineProps<{ hasScrolled?: boolean }>()
 
 let sketch: p5;
 
@@ -401,18 +405,62 @@ onBeforeUnmount(() => {
 <style>
 .background {
   background: var(--color-background-alternate);
-  height: 95vh;
+  height: 100%;
   left: 0;
+  overflow: hidden;
   position: absolute;
   top: 0;
-  width: 95vw;
-  z-index: 0;
+  transition: var(--transition-default);
+  width: 100%;
+  z-index: 1;
+}
+
+.background::after {
+  bottom: var(--spacer-6);
 }
 
 .background__caption {
+  align-items: center;
+  color: var(--color-neutral-100);
+  display: flex;
+  font-size: var(--font-size-6);
+  font-style: italic;
+  gap: var(--spacer-4);
+  opacity: 0;
+  padding: var(--spacer-2) var(--spacer-4);
+  pointer-events: none;
   position: absolute;
   bottom: 0;
-  left: 0;
-  z-index: 10;
+  transition: var(--transition-default);
+  right: 0;
+  z-index: 10000;
+}
+
+.background__caption-number {
+  font-weight: var(--font-weight-bold);
+}
+
+.background__regenerate-button {
+  align-items: center;
+  background: none;
+  border: none;
+  color: var(--color-neutral-000);
+  cursor: pointer;
+  display: inline-flex;
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-5);
+  font-style: normal;
+  gap: var(--spacer-2);
+  line-height: 1;
+}
+
+.background:hover .background__caption {
+  opacity: 1;
+  pointer-events: all;
+  transition-delay: 2s;
+}
+
+.background--scrolled {
+  width: 95vw;
 }
 </style>

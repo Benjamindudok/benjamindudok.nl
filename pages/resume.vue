@@ -10,34 +10,39 @@
         <resume-item title="Frontend developer"
                      subtitle="Blis Digital"
                      timestamp="June 2017 - current"
-                     description="Setting up greenfield projects using VueJS and/or Angular. Working on these projects in a team. Researching new frontend tech. Coaching other frontend developers. Maintaining frontend quality among all projects."
+                     description="Setting up and working on greenfield projects using VueJS and/or Angular. Researching new frontend tech. Coaching other frontend developers. Maintaining frontend quality among all projects."
                      content-title="Notable projects">
           <ul>
-            <resume-subitem title="Powertrade" description="Recreated an existing old application using VueJS. "></resume-subitem>
-            <resume-subitem title="Baarda" description="Created an application to "></resume-subitem>
-            <resume-subitem title="Exact" description="Created a module in a big application in Angular. "></resume-subitem>
+            <resume-subitem title="Navipract" description="Created a medical application to digitalize protocols of child oncology departments."></resume-subitem>
+            <resume-subitem title="Powertrade" description="Rebuild an existing old trading application."></resume-subitem>
+            <resume-subitem title="Baarda" description="Created an application to monitor employee growth."></resume-subitem>
+            <resume-subitem title="Exact" description="Created a module in a large enterprise-application in Angular."></resume-subitem>
           </ul>
         </resume-item>
         <resume-item title="Multimedia developer"
                      subtitle="MCW Studios"
                      timestamp="Feb. 2014 - May 2017"
-                     description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis vehicula urna, eget rutrum neque. Morbi consequat interdum arcu, non ullamcorper velit lobortis ut. Pellentesque ultrices, felis et scelerisque iaculis, risus ipsum pulvinar magna, vel mollis felis mi ut lorem."
+                     description="Working on all kinds of different tech projects for museums and also websites and apps. Researching and implemented a transition from Flash to Electron apps. Occasionally micro electronics and VR work."
                      content-title="Notable projects">
           <ul>
-            <resume-subitem title="Aerokart Winscape Escape Room" description="Vivamus ornare, enim quis porta scelerisque, neque arcu rhoncus sapien, quis malesuada libero arcu ut tellus"></resume-subitem>
-            <resume-subitem title="Opgeschaalde Ambulancezorg (Nederland)" description="Vivamus ornare, enim quis porta scelerisque, neque arcu rhoncus sapien, quis malesuada libero arcu ut tellus"></resume-subitem>
-            <resume-subitem title="Hidrodoe" description="Vivamus ornare, enim quis porta scelerisque, neque arcu rhoncus sapien, quis malesuada libero arcu ut tellus"></resume-subitem>
+            <resume-subitem title="Aerokart Winscape Escape Room" description="Created multiple interactive installations which were a combination of electron apps and micro electronic projects."></resume-subitem>
+            <resume-subitem title="Opgeschaalde Ambulancezorg (Nederland)" description="Created an e-learning application for people in the emergency healthcare sector."></resume-subitem>
+            <resume-subitem title="Hidrodoe" description="Created multiple interactive points of interest for an experience center using chrome apps."></resume-subitem>
           </ul>
         </resume-item>
         <resume-item title="Graduate internship"
                      subtitle="MCW Studios"
-                     timestamp="Sep. 2013 - Jan 2014"
-                     description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis vehicula urna, eget rutrum neque. Morbi consequat interdum arcu, non ullamcorper velit lobortis ut. Pellentesque ultrices, felis et scelerisque iaculis, risus ipsum pulvinar magna, vel mollis felis mi ut lorem.">
+                     timestamp="Sep. 2013 - Jan 2014">
+        </resume-item>
+        <resume-item title="Marketeer internship"
+                     subtitle="Informatique"
+                     timestamp="Aug. 2011 - Jan. 2012"
+                     description="Creating e-mail newsletters, printed advertisements. Setting up advertisement campaigns for brands like NVIDIA, Corsair and intel.">
         </resume-item>
         <resume-item title="Content manager"
                      subtitle="Informatique"
                      timestamp="Jul. 2010 - Aug. 2012"
-                     description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis vehicula urna, eget rutrum neque. Morbi consequat interdum arcu, non ullamcorper velit lobortis ut. Pellentesque ultrices, felis et scelerisque iaculis, risus ipsum pulvinar magna, vel mollis felis mi ut lorem.">
+                     description="Creating and updating product pages. Helping the marketing department with content pages. Creating e-mail newsletters.">
         </resume-item>
       </ul>
       <h3 class="resume__title">Education</h3>

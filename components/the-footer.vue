@@ -7,22 +7,16 @@
     </div>
     <hr class="footer__divider" />
     <p class="footer__description">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum id nisl quis lorem tempus convallis. Nunc imperdiet augue a libero sollicitudin, vel condimentum odio congue.
+      Proudly developed with VueJS/Nuxt/P5 <br/> and some good old fashioned css
     </p>
   </div>
   <ul class="footer__contacts">
-    <a class="footer__contact" target="_blank" href="mailto:benjaminwd@gmail.com"><feather-mail /></a>
-    <a class="footer__contact" target="_blank" href="https://www.linkedin.com/in/benjaminwdudok/"><feather-linkedin /></a>
-    <a class="footer__contact" target="_blank" href="https://github.com/Benjamindudok"><feather-github /></a>
+    <a class="footer__contact" target="_blank" href="mailto:benjaminwd@gmail.com"><IconsFeatherMail /></a>
+    <a class="footer__contact" target="_blank" href="https://www.linkedin.com/in/benjaminwdudok/"><IconsFeatherLinkedin /></a>
+    <a class="footer__contact" target="_blank" href="https://github.com/Benjamindudok"><IconsFeatherGithub/></a>
   </ul>
 </footer>
 </template>
-
-<script lang="ts" setup>
-import FeatherMail from "./icons/feather-mail.vue";
-import FeatherLinkedin from "./icons/feather-linkedin.vue";
-import FeatherGithub from "~/components/icons/feather-github.vue";
-</script>
 
 <style>
 
@@ -32,7 +26,7 @@ import FeatherGithub from "~/components/icons/feather-github.vue";
   justify-content: space-between;
   flex-shrink: 0;
   margin-top: var(--spacer-6);
-  padding: var(--spacer-4) var(--spacer-6);
+  padding: var(--spacer-4) calc(var(--spacer-6) * 2);
 }
 
 .footer__content {

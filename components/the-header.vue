@@ -1,20 +1,17 @@
 <template>
 <header class="header">
   <div class="header__brand">
-    <a class="header__brand-contact" href="mailto:benjaminwd@gmail.com"><feather-mail /></a><nuxt-link class="header__brand-title" to="/">Benjamin Dudok</nuxt-link>
+    <a class="header__brand-contact" href="mailto:benjaminwd@gmail.com"><IconsFeatherMail /></a><nuxt-link class="header__brand-title" to="/">Benjamin Dudok</nuxt-link>
   </div>
   <the-navigation></the-navigation>
   <button class="header__theme-switcher" type="button" @click="toggleCurrentTheme">
-    <feather-night v-if="currentColorScheme === 'light'" />
-    <feather-day v-if="currentColorScheme === 'dark'" />
+    <IconsFeatherNight v-if="currentColorScheme === 'light'" />
+    <IconsFeatherDay v-if="currentColorScheme === 'dark'" />
   </button>
 </header>
 </template>
 
 <script lang="ts" setup>
-import FeatherMail from "./icons/feather-mail.vue";
-import FeatherNight from "./icons/feather-night.vue";
-import FeatherDay from "./icons/feather-day.vue";
 import { ref } from "@vue/reactivity";
 
 const currentColorScheme = ref('light');
@@ -55,8 +52,8 @@ initCurrentTheme();
 .header {
   align-items: center;
   display: flex;
-  margin: 0;
-  padding: var(--spacer-3) var(--spacer-5);
+  margin: 0 0 -140px 0;
+  padding: var(--spacer-6) calc(var(--spacer-6) * 2)  ;
   width: 100%;
 }
 

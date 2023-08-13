@@ -1,8 +1,8 @@
 <template>
     <TheHeader class="layout__header" />
-    <div class="layout__content">
+    <main class="layout__content">
       <slot></slot>
-    </div>
+    </main>
     <TheFooter class="layout__footer" />
 </template>
 

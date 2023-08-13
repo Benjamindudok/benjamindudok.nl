@@ -67,7 +67,7 @@
   --color-background-alternate: var(--color-neutral-900);
   --color-background-highlight: var(--color-neutral-500);
   --font-color: var(--color-neutral-000);
-  --font-color-light: var(--color-neutral-000);
+  --font-color-light: var(--color-neutral-100);
 }
 
 @media (min-width: 960px) {
@@ -78,6 +78,11 @@
 
 * {
   box-sizing: border-box;
+}
+
+*::selection {
+  background: var(--color-accent-800);
+  color: var(--color-neutral-000);
 }
 
 html,

@@ -1,6 +1,7 @@
 <template>
-  <section :class="classes">
+  <section class="content-section" :class="{'content-section--small': props.small}">
     <h3 v-if="props.title" class="content-section__title">{{ props.title }}</h3>
+    <p v-if="props.intro" class="content-section__intro"> {{ props.intro }}</p>
     <div class="content-section__content">
       <slot />
     </div>
@@ -8,59 +9,37 @@
 </template>
 
 <script lang="ts" setup>
-import { computed } from '@vue/reactivity';
-
-const props = defineProps<{ title?: string, single?: boolean, spacious?: boolean }>();
-
-const classes = computed(() => (({
-  'content-section': true,
-  'content-section--single': props.single,
-  'content-section--spacious': props.spacious
-})))
+const props = defineProps<{ title?: string, intro?: string; small?: boolean}>();
 </script>
 
 <style>
 .content-section {
-  display: flex;
-  gap: var(--spacer-5);
-  margin: 0 auto;
-  max-width: 1024px;
+  margin: calc(var(--spacer-6) * 5) auto;
+  max-width: 1280px;
   padding: var(--spacer-6) var(--spacer-0);
 }
 
 .content-section__title {
-  flex-shrink: 0.5;
-  font-size: var(--font-size-3);
-  margin: var(--spacer-2) var(--spacer-0);
+  color: var(--color-accent-800);
+  font-size: calc(var(--font-size-00) * 2);
+  margin: 0 0 calc(var(--spacer-6) * -1.77) 0 ;
+  opacity: 0.3;
   padding: 0;
 }
 
+.content-section__intro {
+  font-size: var(--font-size-2);
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
 .content-section__content {
-  display: flex;
-  gap: var(--spacer-5);
+  padding: var(--spacer-3) 0;
   width: 100%;
 }
 
-.content-section__content * {
-  flex-shrink: 1;
-  flex-grow: 1;
-  flex-basis: 50%;
-}
-
-.content-section--single {
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  gap: var(--spacer-0);
-}
-
-.content-section--spacious {
-  padding: calc(var(--spacer-6) * 2) var(--spacer-0);
-}
-
-.content-section--single .content-section__title {
-  margin: var(--spacer-3) var(--spacer-1);
-  max-width: 75%;
-  text-align: center;
+.content-section--small {
+  max-width: 960px;
 }
 </style>
