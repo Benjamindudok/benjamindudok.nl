@@ -93,6 +93,7 @@ body {
   font-size: 16px;
   line-height: var(--line-height);
   transition: var(--transition-default);
+  scroll-behavior: smooth;
 }
 
 h1,

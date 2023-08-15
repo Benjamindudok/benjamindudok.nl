@@ -1,11 +1,12 @@
 <template>
-  <TheHero />
-    <content-section title="" intro="Hi! I'm Benjamin Dudok, a Frontend Developer from the Netherlands." :small="true">
+  <TheScrollSpy />
+  <TheHero id="intro" />
+    <content-section id="about" title="" intro="Hi! I'm Benjamin Dudok, a Frontend Developer from the Netherlands." :small="true">
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In feugiat nibh vel pretium tempus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eget orci vel justo ultrices finibus non ut nulla. Pellentesque dignissim odio et urna rhoncus vestibulum in sit amet tortor. Aliquam molestie id libero quis porttitor. Nullam ornare efficitur mauris in bibendum.</p>
       <p>Proin sodales risus purus, id iaculis dolor rutrum eu. Vivamus at mi neque. Vivamus ornare, enim quis porta scelerisque, neque arcu rhoncus sapien, quis malesuada libero arcu ut tellus. In nec efficitur mi, non dignissim magna. Nullam volutpat placerat velit. Curabitur nec ultricies diam.</p>
     </content-section>
 
-    <content-section title="Manifest" intro="In multiple aspects of my life I draw inspiration from Bauhaus design. From furniture to digital products. I seek to pursue their values in my development career too.">
+    <content-section id="manifest" title="Manifest" intro="In multiple aspects of my life I draw inspiration from Bauhaus design. From furniture to digital products. I seek to pursue their values in my development career too.">
       <ul class="home__manifest">
         <li class="home__manifest-principle">
           <h5 class="home__manifest-subtitle">Form</h5>
@@ -40,7 +41,7 @@
         </li>
       </ul>
     </content-section>
-  <content-section title="Resume" intro="">
+  <content-section id="resume" title="Resume" intro="">
     <div class="resume">
       <h3 class="resume__title">Work experience</h3>
       <ul class="resume__content">
@@ -148,6 +149,7 @@
 import ContentSection from "../components/content-section.vue";
 import ResumeItem from "~/components/resume-item.vue";
 import Tag from "~/components/tag.vue";
+import TheScrollSpy from "~/components/the-scroll-spy.vue";
 </script>
 
 <style>
