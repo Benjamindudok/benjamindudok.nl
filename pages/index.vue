@@ -157,12 +157,19 @@ import TheScrollSpy from "~/components/the-scroll-spy.vue";
 .home__manifest {
   display: flex;
   flex-wrap: wrap;
+  flex-direction: column;
   gap: var(--spacer-4);
   justify-content: space-between;
   list-style: none;
   margin: 0;
   padding: 0;
   width: 100%;
+}
+
+@media (min-width: 768px) {
+  .home__manifest {
+    flex-direction: row;
+  }
 }
 
 .home__manifest-principle {
@@ -173,8 +180,15 @@ import TheScrollSpy from "~/components/the-scroll-spy.vue";
 .home__manifest-divider {
   border: none;
   border-top: 1px solid var(--color-neutral-300);
+  display: none;
   width: 100%;
   flex: 0 0 auto;
+}
+
+@media (min-width: 768px) {
+  .home__manifest-divider {
+    display: block;
+  }
 }
 
 .home__manifest-subtitle {

@@ -16,22 +16,43 @@ const props = defineProps<{ title?: string, intro?: string; small?: boolean}>();
 .content-section {
   margin: calc(var(--spacer-6) * 5) auto;
   max-width: 1280px;
-  padding: var(--spacer-6) var(--spacer-0);
+  padding: var(--spacer-6);
+}
+
+@media (min-width: 768px) {
+  .content-section {
+    padding: var(--spacer-6) var(--spacer-0);
+  }
 }
 
 .content-section__title {
   color: var(--color-accent-800);
-  font-size: calc(var(--font-size-00) * 2);
-  margin: 0 0 calc(var(--spacer-6) * -1.77) 0 ;
+  font-size: var(--font-size-0);
+  margin: 0;
   opacity: 0.3;
   padding: 0;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .content-section__title {
+    font-size: calc(var(--font-size-00) * 2);
+    margin: 0 0 calc(var(--spacer-6) * -1.77) 0 ;
+    text-align: left;
+  }
 }
 
 .content-section__intro {
-  font-size: var(--font-size-2);
+  font-size: var(--font-size-3);
   text-align: center;
   position: relative;
   z-index: 2;
+}
+
+@media (min-width: 768px) {
+  .content-section__intro {
+    font-size: var(--font-size-2);
+  }
 }
 
 .content-section__content {

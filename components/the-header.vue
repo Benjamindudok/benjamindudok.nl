@@ -52,9 +52,16 @@ initCurrentTheme();
 .header {
   align-items: center;
   display: flex;
-  margin: 0 0 -140px 0;
-  padding: var(--spacer-6) calc(var(--spacer-6) * 2)  ;
+  margin: 0 0 -84px 0;
+  padding: var(--spacer-4) var(--spacer-4);
   width: 100%;
+}
+
+@media (min-width: 768px) {
+  .header {
+    margin: 0 0 -140px 0;
+    padding: var(--spacer-6) calc(var(--spacer-6) * 2);
+  }
 }
 
 .header__brand {

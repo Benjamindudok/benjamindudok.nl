@@ -42,10 +42,20 @@ const props = defineProps<{
 <style>
 .resume-item {
   align-items: flex-start;
+  border-bottom: 1px solid var(--color-neutral-100);
   display: flex;
-  gap: var(--spacer-6);
+  flex-direction: column;
+  gap: var(--spacer-3);
   margin: 0;
   padding: var(--spacer-6) var(--spacer-0);
+}
+
+@media (min-width: 768px) {
+  .resume-item {
+    border-bottom: none;
+    flex-direction: row;
+    gap: var(--spacer-6);
+  }
 }
 
 .resume-item__content {
@@ -72,17 +82,31 @@ const props = defineProps<{
 .resume-item__timestamp {
   align-items: flex-end;
   display: flex;
-  flex-direction: column;
-  flex: 0 0 20%;
+  flex-direction: row;
   justify-content: flex-start;
-  gap: calc(var(--spacer-2) * 1);
-  text-align: right;
+  gap: calc(var(--spacer-3) * 1);
+}
+
+@media (min-width: 768px) {
+  .resume-item__timestamp {
+    flex-direction: column;
+    flex: 0 0 20%;
+    gap: calc(var(--spacer-2) * 1);
+    text-align: right;
+  }
 }
 
 .resume-item__timestamp-divider {
   border-color: var(--color-accent-800);
   margin: 0;
-  width: 50px;
+  height: 30px;
+}
+
+@media (min-width: 768px) {
+  .resume-item__timestamp-divider {
+    height: auto;
+    width: 50px;
+  }
 }
 
 .resume-item__start-date,
@@ -94,6 +118,16 @@ const props = defineProps<{
   font-style: italic;
   font-weight: var(--font-weight-bold);
   margin: 0;
+}
+
+.resume-item__end-date {
+  text-align: right;
+}
+
+@media (min-width: 768px) {
+  .resume-item__end-date {
+    text-align: inherit;
+  }
 }
 
 .resume-item__start-date {
@@ -119,12 +153,20 @@ const props = defineProps<{
 .resume-item__projects-list {
   align-items: flex-start;
   display: flex;
-  gap: var(--spacer-5);
+  flex-direction: column;
+  gap: var(--spacer-1);
   justify-content: space-between;
   margin: 0;
   max-width: none;
   padding: 0;
   width: 100%;
+}
+
+@media (min-width: 768px) {
+  .resume-item__projects-list {
+    flex-direction: row;
+    gap: var(--spacer-5);
+  }
 }
 
 .resume-item__skills {

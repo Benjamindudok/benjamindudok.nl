@@ -66,7 +66,7 @@ onBeforeUnmount(() => {
 .content-tracker {
   align-items: center;
   bottom: 0;
-  display: flex;
+  display: none;
   justify-content: space-between;
   left: 0;
   pointer-events: none;
@@ -74,6 +74,12 @@ onBeforeUnmount(() => {
   right: 0;
   top: 0;
   z-index: 100;
+}
+
+@media (min-width: 768px) {
+  .content-tracker {
+    display: flex;
+  }
 }
 
 .content-tracker__sections {

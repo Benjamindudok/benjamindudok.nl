@@ -6,6 +6,16 @@
 </template>
 
 <style>
+.navigation {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .navigation {
+    display: block;
+  }
+}
+
 .navigation__link,
 .navigation__link:visited {
   color: var(--font-color);

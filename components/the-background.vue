@@ -422,7 +422,7 @@ onBeforeUnmount(() => {
 .background__caption {
   align-items: center;
   color: var(--color-neutral-100);
-  display: flex;
+  display: none;
   font-size: var(--font-size-6);
   font-style: italic;
   gap: var(--spacer-4);
@@ -434,6 +434,12 @@ onBeforeUnmount(() => {
   transition: var(--transition-default);
   right: 0;
   z-index: 10000;
+}
+
+@media (min-width: 768px) {
+  .background__caption {
+    display: flex;
+  }
 }
 
 .background__caption-number {
@@ -460,7 +466,9 @@ onBeforeUnmount(() => {
   transition-delay: 2s;
 }
 
-.background--scrolled {
-  width: 95vw;
+@media (min-width: 768px) {
+  .background--scrolled {
+    width: 95vw;
+  }
 }
 </style>
