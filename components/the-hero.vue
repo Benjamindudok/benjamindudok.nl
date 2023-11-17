@@ -8,7 +8,7 @@
     <li class="hero__list-item">
       <h3 class="hero__list-heading hero__list-heading--subtitle">Who I am</h3>
       <h3 class="hero__list-heading">Hi there!</h3>
-      <p class="hero__list-description">I'm Benjamin Dudok, a frontend developer currently working at <a href="https://www.blisdigital.com">Blis Digital</a></p>
+      <p class="hero__list-description">I'm Benjamin Dudok, a frontend developer currently working at <a   href="https://www.blisdigital.com">Blis Digital</a></p>
     </li>
     <li class="hero__list-item">
       <h3 class="hero__list-heading hero__list-heading--subtitle">What I do</h3>
@@ -16,13 +16,13 @@
       <p class="hero__list-description">I craft applications that provide seamless experiences.</p>
     </li>
     <li class="hero__list-item">
-      <h3 class="hero__list-heading hero__list-heading--subtitle">and...</h3>
+      <h3 class="hero__list-heading hero__list-heading--subtitle">&nbsp;</h3>
       <h3 class="hero__list-heading">Coaching</h3>
       <p class="hero__list-description">Through mentorship and guidance, I foster a culture of continuous improvement.</p>
     </li>
     <li class="hero__list-item">
       <h3 class="hero__list-heading hero__list-heading--subtitle">I also do</h3>
-      <h3 class="hero__list-heading">Technical Consultancy</h3>
+      <h3 class="hero__list-heading">Frontend Consultancy</h3>
       <p class="hero__list-description">I help organizations make well-informed architectural decisions.</p>
     </li>
   </ul>
@@ -72,11 +72,11 @@ onBeforeUnmount(() => {
 
 .hero__title {
   font-family: var(--font-family-heading);
-  font-size: var(--font-size-1);
+  font-size: var(--font-size-2);
   font-weight: var(--font-weight-black);
   line-height: var(--line-height-condensed);
   margin: 0 0 var(--spacer-6);
-  padding: 0;
+  padding: 0 var(--spacer-2);
   text-align: center;
 }
 
@@ -84,6 +84,7 @@ onBeforeUnmount(() => {
   .hero__title {
     font-size: var(--font-size-00);
     margin-bottom: 0;
+    padding: 0;
   }
 }
 
